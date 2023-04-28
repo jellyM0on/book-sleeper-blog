@@ -1,16 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
+
+import Title from "./title-heading";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 function NavTab(props){
-    const {title} = props; 
+
+    const location = useLocation();
 
     return(
-        <Link to={`./${title}`}>
-            <div class='nav-tab' >
-                <h3>{title}</h3>
+        <div class='nav-tab'>
+            {location.pathname == '/' ? <></> : <Link to='/'> <Title titleClass='nav-title'/> </Link> }
+            <div class='nav-links'>
+                <Link to='/works'><h3 id='works'>Works</h3></Link>
+                <Link to='/contact'><h3 id='contact'>Contact</h3></Link>
             </div>
-        </Link>
-       
+        
+        
+          
+        </div>
     )
 }
 

@@ -1,12 +1,181 @@
-body{
+body, 
+.App{
   height: 100vh;
-  width: 100vw;
+  width: 100vw; 
   overflow: hidden; 
 }
 
-div{
-  border: 1px solid;
+h1, h2, h3, h4, p{
+  margin: 0;
+  color: black;
 }
+
+a{
+  text-decoration: none;
+}
+
+.App{
+  display: flex; 
+  flex-direction: column;
+}
+
+.nav-tab{
+  width: 100%;
+  /* border: solid 1px; */
+  display: grid; 
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.nav-links{
+  grid-column: 2;
+  display: flex;
+  gap: 2em;
+  align-items: center;
+  justify-content: end;
+  margin: 1em;
+}
+
+.nav-tab h3{
+  margin: 0;
+}
+
+
+
+.title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  width: fit-content;
+  height: 100%;
+  /* border: solid 1px;  */
+  
+}
+
+
+.title h1,
+.title h2{
+  margin: 0;
+  padding: 0;
+}
+
+.title h1{
+  line-height: 0.75em;
+}
+
+.home-title h1{
+  font-size: 12em;
+}
+
+.nav-title{
+  font-size: 0.5em;
+}
+
+.about{
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content; 
+  padding: 2em; 
+}
+
+.about h2,
+.about p{
+  color: white; 
+}
+
+.home-page{
+  height: 100%; 
+  display: grid; 
+  grid-template-columns: 1fr 1fr;
+} 
+
+/* .home-page > .title{
+  justify-self:start;
+} */
+
+.home-page > .about{
+  justify-self: end; 
+  align-self: center; 
+}
+
+.home-page > .latest-posts{
+  border: solid 1px; 
+  grid-column: 1/ span 2; 
+
+}
+
+.nav-title{
+
+}
+
+
+
+
+
+/* body,
+.App{
+  height: 100vh;
+  
+}
+
+.App{
+  display: flex;
+}
+
+div{
+  box-sizing: border-box;
+}
+
+
+.home-page,
+.main-content,
+.contact-page{
+  width: 100vw;
+  height: 100%;
+}
+
+.home-page{
+  display: flex;
+}
+ 
+.main-content{
+  display: grid; 
+  grid-template-rows: 0.75fr 0.25fr;
+}
+
+.headings{
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+}
+
+.title, .about, .latest-works{
+  border: solid 2px;
+}
+
+.about{
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+
+
+
+
+
+
 
 .nav-container{
   display: flex;
@@ -19,9 +188,32 @@ div{
   writing-mode: vertical-rl;
   text-orientation: sideways;
   line-height: 0;
+  border: solid 2px;
 }
 
-.home-page{
-  display: flex; 
-  flex-direction: row;
+.sample{
+  background-color: antiquewhite;
+  border: solid 2px; 
+  height: 100vh; 
+  width: 100vw;
+  position: absolute; 
+  top: 0em;
+  left: 0em; 
+
 }
+
+.contact-page>div{
+  display: flex;
+  justify-content: right;
+  align-items: right;
+}
+
+.works-page>div{
+  display: flex; 
+  justify-content: space-between;
+  width: 90vw; 
+}
+
+.works-page{
+  display: flex; 
+} */

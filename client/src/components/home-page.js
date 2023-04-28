@@ -1,35 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
-import NavTab from './nav-tab';
-import { motion } from 'framer-motion';
+import { motion as m } from 'framer-motion';
+import Title from './title-heading';
+import About from './about';
+import LatestPosts from './latest-posts';
 
 function Home(){
     return(
-        <div class='home-page'>
-            <div class='nav-container'>
-                <NavTab title='contact'/>
-                <NavTab title='works'/>
-            </div>
-
-            <motion.div class='main-content'>
-                <div class='headings'>
-                    <div class='about'>
-                        <h2>author's note</h2>
-                        <p>Sample text</p>
-                    </div>
-                    <div class='title'>
-                        <h1>book sleeper</h1>
-                        <h2>by yl</h2>
-                    </div>
-                </div>
-                <div class='latest-works'>
-                    <h2>latest works</h2>
-                    <p>sample text</p>
-                </div>
-            </motion.div>
-
-            {/* div */}
-        </div>
+        <m.div class='home-page'
+        // initial={{x:'0'}}
+        // animate={{x: '100vw'}}
+        // transition={{duration: 1, ease: 'easeOut'}}
+        // exit={{opacity:1}}
+        >
+            <Title titleClass='home-title'/>
+            <About/>
+            <LatestPosts/>
+        </m.div>
     )
 }
 
