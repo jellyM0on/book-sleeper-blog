@@ -4,6 +4,7 @@ import { motion as m } from 'framer-motion';
 import Title from './title-heading';
 import About from './about';
 import LatestPosts from './latest-posts';
+import SocialLinks from './social-links';
 
 function Home(){
     return(
@@ -16,6 +17,7 @@ function Home(){
             <Title titleClass='home-title'/>
             <About/>
             <LatestPosts/>
+            <SocialLinks/>
         </m.div>
     )
 }
