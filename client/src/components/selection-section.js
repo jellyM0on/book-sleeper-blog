@@ -1,15 +1,16 @@
 export default function Section(props){
-    const {key, content} = props; 
+    const {key, data} = props; 
 
+    console.log(data); 
     return(
         <div>
             <div>
                 <p>{key}</p>
             </div>
             <div>
-            {content.map((d, i) => {
+            {data.map((d, i) => {
                 return(
-                    <p key='i'>{d}</p>
+                    <p key={i}>{d.title}</p>
                 )
             })}
             </div>

@@ -1,8 +1,35 @@
 const express = require('express');
+const mongoose = require('mongoose'); 
+const cors = require('cors');
 const app = express();
+require('dotenv/config'); 
 
-app.get('/api', (req, res)=> {
-    res.json({'msg':'hi'});
+app.use(express.json());
+app.use(cors()); 
+
+const TextModel = require('./models/text');
+
+const url = process.env.DB_CONNECTION;
+
+async function connectDb(){
+    try{
+        mongoose.connect(url); 
+        console.log('connected')
+    } catch (err){
+        console.error(err); 
+    }
+}
+connectDb(); 
+
+app.get('/read', async (req, res) => {
+    TextModel.find({})
+    .then((result, err) => {
+        if(err){
+            res.send(err)
+        } else {
+            res.send(result); 
+        }
+    })
 })
 
 app.listen(5000, ()=> {

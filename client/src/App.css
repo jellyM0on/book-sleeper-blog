@@ -87,7 +87,12 @@ a{
 }
 
 .nav-title{
-  font-size: 0.5em;
+  margin-left: 1em;
+  font-size: 1.25em;
+}
+
+.nav-title h2{
+ font-size: 0.5em;
 }
 
 .about{
@@ -155,7 +160,35 @@ a{
   font-family: title-font; 
 }
 
+.home-decor-gif{
+  position: absolute; 
+  /* border: solid 2px;  */
+  /* overflow: hidden;  */
+  width: 200px; 
+  /* height: 200px; */
+  top:0;
+  left: 0; 
+}
 
+/* .home-decor-gif img{
+  width: 100%; 
+} */
+
+.nav-decor{
+  position: absolute; 
+  width: 50%; 
+  height: 1em; 
+  background-color: black ;
+  top: 0; 
+  left: 0; 
+  right: 0;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+.nav-links a:hover{
+  font-style: italic;
+}
 
 
 /* body,

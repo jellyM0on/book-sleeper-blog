@@ -2,10 +2,12 @@ import { motion as m } from 'framer-motion';
 import NavTab from './nav-tab';
 import Section from './selection-section';
 
-function Works(){
+function Works(props){
+    const {data} = props; 
+
     return(
         <div class='works-page'>
-             <Section key='A' content={['a', 'b']}/>
+             <Section key='A' data={data}/>
         </div>
     )
 }
