@@ -31,8 +31,12 @@ function App() {
               <Route path='/contact' element={<Contact/>}/>
               <Route path='/works' element ={<Works data={data}/>}/>
               {data.map((d, i) => {
-                <Route path={`/works/${d.title}`} element={<Post data={d}/>}/>
+                return(
+                  <Route path={`/works/${d.title}`} element={<Post data={d}/>}/>
+                )
               })}
+               
+              <Route path="*" element={<div> Not Found or You do not have permission.</div>}/>
             </Routes>
         </AnimatePresence>
       </BrowserRouter>

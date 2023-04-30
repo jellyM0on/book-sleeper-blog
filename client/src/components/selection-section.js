@@ -12,7 +12,7 @@ export default function WorksList(props){
                         <p>{d.key}</p>
                         {d.works.map((x, y) => {
                             return(
-                                <p>{x.title}</p>
+                                <Link to={`./${x.title}`}> <p>{x.title}</p></Link>
                             )
                         })}
                     </div>
