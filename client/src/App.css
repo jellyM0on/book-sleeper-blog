@@ -18,7 +18,7 @@ body,
 .App{
   height: 100vh;
   width: 100vw; 
-  overflow: hidden; 
+  overflow-x: hidden; 
   background-color: #FFFCF7;
 }
 
@@ -127,6 +127,7 @@ a{
   height: 100%; 
   display: grid; 
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 0.25fr;
 } 
 
 /* .home-page > .title{
@@ -144,6 +145,8 @@ a{
 }
 
 .home-page> .social-links{
+  display: flex;
+  flex-direction: column;
   position: absolute; 
   bottom: 0;
   right: 0;
@@ -190,7 +193,29 @@ a{
   font-style: italic;
 }
 
+.latest-posts{
+  padding-top: 1em;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
 
+}
+.latest-posts h2{
+  font-size: 2.5em;
+}
+
+.latest-post-item{
+  font-family: body-font;
+  font-size: 2em;
+  display: flex; 
+  width: 90%; 
+  justify-content: space-between; 
+}
+
+.works-page{
+  border: solid 2px; 
+  margin: 2em;
+}
 /* body,
 .App{
   height: 100vh;

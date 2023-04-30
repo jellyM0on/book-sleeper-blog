@@ -1,12 +1,17 @@
-export default function LatestPosts(props){
-    const {posts} = props;
+import LatestPostItem from "./latest-posts-item";
 
+export default function LatestPosts(props){
+    const {data} = props;
+    console.log(data); 
     return(
         <div class='latest-posts'>
             <h2>latest works</h2>
             <ul>
-                <li></li>
-                {/* posts.map */}
+                {data.map((d, i) => {
+                    return(
+                       <LatestPostItem key={i} title={d.title} date={d.date}/>
+                    )
+                })}
             </ul>
         </div>
     )

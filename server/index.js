@@ -23,6 +23,7 @@ connectDb();
 
 app.get('/read', async (req, res) => {
     TextModel.find({})
+    .sort({'date': 1, '_id': -1 })
     .then((result, err) => {
         if(err){
             res.send(err)

@@ -7,7 +7,9 @@ import LatestPosts from './latest-posts';
 import SocialLinks from './social-links';
 import homegif from '../img-resources/main-gif.gif'
 
-function Home(){
+function Home(props){
+    const {latestData} = props;
+
     return(
         <m.div class='home-page'
         // initial={{x:'0'}}
@@ -18,7 +20,7 @@ function Home(){
             {/* <div class='home-decor-gif'><img src={homegif}></img> </div> */}
             <Title titleClass='home-title'/>
             <About/>
-            <LatestPosts/>
+            <LatestPosts data={latestData}/>
             <SocialLinks/>
         </m.div>
     )
