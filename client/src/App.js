@@ -29,11 +29,11 @@ function App() {
           <Routes key={window.location.pathname}>
               <Route path='/'element={<Home latestData={data.slice(0, 3)}/>}/>
               <Route path='/contact' element={<Contact/>}/>
-              <Route path='/works' element ={<Works data={data}/>}/>
+              <Route path='/works' element={<Works data={data}/>}/>
               {data.map((d, i) => {
                 return(
                   <Route path={`/works/${d.title}`} element={<Post data={d}/>}/>
-                )
+              )
               })}
                
               <Route path="*" element={<div> Not Found or You do not have permission.</div>}/>

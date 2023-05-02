@@ -1,8 +1,11 @@
 import { motion as m } from 'framer-motion';
-import NavTab from './nav-tab';
+
 import Sort from './sort-works';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WorksList from './selection-section';
+import WorksHeader from './works-header';
+import Post from './post-page';
 
 function Works(props){
     const {data} = props; 
@@ -78,10 +81,22 @@ function Works(props){
         return groupedArr; 
     }
 
-    return(
-        <div class='works-page'>
+    const SelectionPage = () => {
+        return(
+        <div class='works-selection'>
             <Sort setSortKey={setSortKey}/>
             <WorksList data={sortKey === 'alphabet' ? alphaSorted() : dateSorted()}/>
+        </div>
+        )
+    }
+
+    return(
+        <div class='works-page'>
+            <WorksHeader/>
+            <div class='works-content'>
+                <Sort setSortKey={setSortKey}/>
+                <WorksList data={sortKey === 'alphabet' ? alphaSorted() : dateSorted()}/>
+            </div>
         </div>
     )
 }

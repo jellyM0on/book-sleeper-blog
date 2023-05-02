@@ -5,7 +5,7 @@ export default function LatestPosts(props){
     console.log(data); 
     return(
         <div class='latest-posts'>
-            <h2>latest works</h2>
+            <h2>Latest Works...</h2>
             <ul>
                 {data.map((d, i) => {
                     return(
