@@ -6,8 +6,9 @@ import Title from "./title-heading";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function NavTab(){
 
+function NavTab(props){
+    const {wordDecor} = props; 
     const location = useLocation();
 
     const NavLink = (props) => {
@@ -21,12 +22,15 @@ function NavTab(){
             </Link>
         )
     }
+
+    console.log(wordDecor) 
     return(
         <div class='nav-tab'>
             <div class='nav-decor'>
-                <p>Word of the day</p>
-                <p>Chivalry</p>
+                <p><i>Random Word</i></p>
+                <p>"{wordDecor}"</p>    
             </div>
+
             {location.pathname == '/' ? <></> : <Link to='/'> <Title titleClass='nav-title'/> </Link> }
             <div class='nav-links'>
                 <NavLink page='Works'/>

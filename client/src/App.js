@@ -12,19 +12,34 @@ import Post from './components/post-page';
 
 function App() {
   const [data, setData] = useState([{}]);
+  const [wordDecor, setWordDecor] = useState();
 
   useEffect(() => {
     Axios.get('http://localhost:5000/read')
       .then((result) => {
         setData(result.data); 
       })
+
+    if(!wordDecor){
+      getWord(); 
+    }
   }, [])
-  
+
+  async function getWord(){
+    fetch('https://api.datamuse.com/words?ml=poetry')
+    .then((res) => res.json())
+    .then((res) => {
+      const total = res.length; 
+      const randomNum = Math.ceil(Math.random() * total) 
+      setWordDecor(res[randomNum].word);
+    })
+  }
+
   return (
     <div className="App">
       <div class='cursor'></div>
       <BrowserRouter>
-        <NavTab/>
+        <NavTab wordDecor={wordDecor}/>
         <AnimatePresence initial={true}>
           <Routes key={window.location.pathname}>
               <Route path='/'element={<Home latestData={data.slice(0, 3)}/>}/>

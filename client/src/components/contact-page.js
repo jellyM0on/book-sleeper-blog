@@ -3,7 +3,7 @@ import Home from './home-page';
 import NavTab from './nav-tab';
 function Contact(){
     return(
-        <div class='contact-page'>
+        <div class='works-page'>
             <m.div
              initial={{x:'-100vw'}}
              animate={{x: '10vw'}}

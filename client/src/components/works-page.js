@@ -91,10 +91,11 @@ function Works(props){
     }
 
     return(
+    
         <div class='works-page'>
-            <WorksHeader/>
-            <div class='works-content'>
-                <Sort setSortKey={setSortKey}/>
+             <WorksHeader/>
+             <div class='works-content'>
+                 <Sort setSortKey={setSortKey}/>
                 <WorksList data={sortKey === 'alphabet' ? alphaSorted() : dateSorted()}/>
             </div>
         </div>

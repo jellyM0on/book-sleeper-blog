@@ -106,6 +106,7 @@ a{
 .nav-title{
   margin-left: 1em;
   font-size: 1em;
+  height:100%;
 }
 
 .nav-title h2{
@@ -262,7 +263,7 @@ a{
   border-top: 0;
   border-right: 2px solid; 
   border-left: 2px solid; 
-  margin: 1em; 
+  margin: 1em;
   height: 100%; 
   overflow-y: scroll; 
   display: flex; 
@@ -364,4 +365,19 @@ a{
 
 ::-webkit-scrollbar-thumb:hover{
   background-color: black;
+}
+
+.contact-page{
+  height: 100%;
+  overflow:hidden;
+}
+
+.nav-decor{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+
+}
+.nav-decor p{
+font-family: 'Times New Roman', Times, serif;
 }
