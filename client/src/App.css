@@ -38,10 +38,10 @@ a{
 
 .nav-tab{
   width: 100%;
+  height: 5em;
   /* border: solid 1px; */
   display: grid; 
   grid-template-columns: 1fr 1fr;
-
 }
 
 .nav-links{
@@ -50,14 +50,31 @@ a{
   gap: 2em;
   align-items: center;
   justify-content: end;
-  margin: 1em;
+  margin-right: 1em;
   font-family: selection-font;
   font-size: 1.5em;
 }
 
-.nav-tab h3{
-  margin: 0;
+.nav-link{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
+.nav-link h3{
+  margin: 0;
+  padding: 0;
+}
+.nav-link img{
+  width: 1em;
+  display: none;
+}
+
+.nav-link:hover img{
+  display: unset;
+}
+
 
 .title{
   display: flex;
@@ -88,7 +105,7 @@ a{
 
 .nav-title{
   margin-left: 1em;
-  font-size: 1.25em;
+  font-size: 1em;
 }
 
 .nav-title h2{
@@ -187,10 +204,23 @@ a{
   right: 0;
   margin-left: auto;
   margin-right: auto; 
+  transition: height 3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.nav-links a:hover{
-  font-style: italic;
+.nav-decor p{
+  display: none;
+}
+
+.nav-decor:hover{
+  height: 3em;
+}
+
+.nav-decor:hover p{
+  display: unset;
+  color:#FFFCF7; 
 }
 
 .latest-posts{
@@ -198,18 +228,33 @@ a{
   display: flex; 
   flex-direction: column;
   justify-content: center;
-
 }
 .latest-posts h2{
   font-size: 2.5em;
 }
 
 .latest-post-item{
+  
   font-family: body-font;
   font-size: 2em;
-  display: flex; 
-  width: 90%; 
+  width: 90%;
+  display: flex;
+}
+
+.latest-post-item li{
+  width: 100%;
+  list-style: none;
+  display: flex;
   justify-content: space-between; 
+
+}
+
+.latest-post-item:hover{
+  background-color: black;
+}
+
+.latest-post-item:hover *{
+  color:#FFFCF7;
 }
 
 .works-page{
@@ -273,6 +318,11 @@ a{
   font-size: 1.5em;
 }
 
+.works-list-section p:hover{
+  background-color: black;
+  color:#FFFCF7;
+}
+
 .works-list{
   padding: 2em;
 }
@@ -290,9 +340,10 @@ a{
 }
 
 .works-header h2{
-  font-family: body-font;
+  font-family: title-font;
   letter-spacing: 0.25em;
 }
+
 
 .works-header a{
   color: black; 
@@ -304,7 +355,7 @@ a{
   background-color: black;
 }
 ::-webkit-scrollbar-track{
-  background:hsla(36, 100%, 98%, 0.882);
+  background: rgb(224,221,216)
 }
 
 ::-webkit-scrollbar-thumb{

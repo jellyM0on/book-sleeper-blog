@@ -11,11 +11,15 @@ export default function LatestPostItem(props){
     }
 
     return(
-        <li class='latest-post-item'>
-            <Link to={`/works/${title}`}><p>{title}</p> </Link>
-            <p>......</p>
-            <p>{modifiedDate(new Date(date))}</p>
-        </li>
+        <Link to={`/works/${title}`} class='latest-post-item'> 
+            <li>
+                <p>{title}</p> 
+                <p>...........................</p>
+                <p>{modifiedDate(new Date(date))}</p>
+            </li>
+        </Link>
+
+   
         
     )
 }

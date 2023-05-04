@@ -3,7 +3,7 @@ export default function About(){
         <div class='about'>
             <h2>author's note</h2>
             <div>
-                <p>This website showcases a compilation of poems and musings this author has written since her teenagehood</p>
+                <p>This website showcases a compilation of poems and fragments this author has written</p>
             </div>
         </div>
     )
