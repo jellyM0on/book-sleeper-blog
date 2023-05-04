@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 export default function WorksList(props){
     const {key, data} = props; 
 
-    console.log(data); 
     return(
-        <div>
+        <div class='works-list'>
             {data.map((d, i) => {
                 return(
-                    <div> 
-                        <p>{d.key}</p>
+                    <div class='works-list-section'> 
+                        <h3>{d.key}...</h3>
                         {d.works.map((x, y) => {
                             return(
                                 <Link to={`./${x.title}`}> <p>{x.title}</p></Link>

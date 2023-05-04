@@ -4,8 +4,8 @@ export default function WorksHeader(props){
     const {page} = props; 
     return(
         <div class='works-header'>
-            {!page ? <h2>Selection</h2> 
-            : <h2><Link to='/works'>Selection</Link> {'>'} {page}</h2> }
+            {!page ? <h2>SELECTION</h2> 
+            : <h2><Link to='/works'>SELECTION</Link> {'>'} {page}</h2> }
         </div>
     )
 }

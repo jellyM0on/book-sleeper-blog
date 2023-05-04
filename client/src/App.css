@@ -256,4 +256,61 @@ a{
   text-align: right;
 }
 
+.works-list-section{
+  margin-bottom: 1em;
+  font-family: body-font;
+}
 
+.works-list-section h3{
+  border-bottom: 1px solid; 
+  width:100%;
+  font-size: 2em;
+}
+
+.works-list-section p{
+  margin-bottom: 1em;
+  margin-left: 1em;
+  font-size: 1.5em;
+}
+
+.works-list{
+  padding: 2em;
+}
+
+
+.sort-dropdown > label{
+  font-family: body-font; 
+}
+
+.sort-dropdown > select{
+  background-color: transparent;
+  border: 1px solid rgb(203, 201, 201); 
+  border-radius: 25px; 
+  font-family: body-font; 
+}
+
+.works-header h2{
+  font-family: body-font;
+  letter-spacing: 0.25em;
+}
+
+.works-header a{
+  color: black; 
+}
+
+/* scrollbar */
+
+::-webkit-scrollbar{
+  background-color: black;
+}
+::-webkit-scrollbar-track{
+  background:hsla(36, 100%, 98%, 0.882);
+}
+
+::-webkit-scrollbar-thumb{
+  background: black;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: black;
+}

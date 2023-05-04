@@ -8,8 +8,8 @@ export default function Sort(props){
 
     return(
         <div class='sort-dropdown'>
-            <label for='sortKey'>sort by: </label>
-            <select id='sortKey' name='sortKey' onChange={assignKey}>
+            <label for='sortKey' class='sortKey'>sort by: </label>
+            <select class='sortKey' name='sortKey' onChange={assignKey}>
                 <option value='alphabet'>alphabet</option>
                 <option value='date' selected>date</option>
             </select>
