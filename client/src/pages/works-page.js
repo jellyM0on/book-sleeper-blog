@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import WorksList from './selection-section';
 import WorksHeader from './works-header';
-import Post from './post-page';
+import Post from '../components/post-page';
 
 function Works(props){
     const {data} = props; 

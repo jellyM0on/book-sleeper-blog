@@ -1,6 +1,5 @@
 import { motion as m } from 'framer-motion';
-import Home from './home-page';
-import NavTab from './nav-tab';
+
 function Contact(){
     return(
         <div class='works-page'>
