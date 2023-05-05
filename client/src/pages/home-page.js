@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { motion as m } from 'framer-motion';
 
 import Title from '../components/title-heading'

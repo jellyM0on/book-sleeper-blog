@@ -1,4 +1,3 @@
-import parse from 'html-react-parser'
 import ContentEditor from './works-content-editor';
 import WorksHeader from "./works-header";
 import { useState } from 'react';
@@ -25,7 +24,7 @@ export default function Post(props){
                 <ContentEditor setFont={setFont} setFontSize={setFontSize} font={font} fontSize={fontSize}/>
                 <h2 style={textStyle}>{data.title}</h2>
                 <p style={textStyle}>
-                    {parse(content)}</p>
+                    {content}</p>
             </div>     
         </div>
     )

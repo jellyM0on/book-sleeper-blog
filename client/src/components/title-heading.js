@@ -6,7 +6,7 @@ export default function Title(props){
     return(
         <div class={`title ${titleClass}`} >
             <h1>book<br></br>sleeper</h1>
-            <h2>by yl</h2>
+            <h2>a poetry blog</h2>
             
         </div>
         

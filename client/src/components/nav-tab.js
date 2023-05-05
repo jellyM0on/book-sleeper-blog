@@ -23,7 +23,7 @@ function NavTab(props){
         )
     }
 
-    console.log(wordDecor) 
+    // console.log(wordDecor) 
     return(
         <div class='nav-tab'>
             <div class='nav-decor'>

@@ -1,12 +1,14 @@
 import './App.css';
 import Axios from 'axios'; 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import parse from 'html-react-parser'
+import { BrowserRouter, Routes, Route, RedirectFunction } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-import Home from './components/home-page';
-import Contact from './components/contact-page';
-import Works from './components/works-page';
+
+import Home from './pages/home-page';
+import Contact from './pages/contact-page';
+import Works from './pages/works-page';
 import NavTab from './components/nav-tab';
 import Post from './components/post-page';
 
@@ -15,9 +17,15 @@ function App() {
   const [wordDecor, setWordDecor] = useState();
 
   useEffect(() => {
+    if(!data){
+      return(
+        <div>Loading...</div>
+      )
+    }
+
     Axios.get('http://localhost:5000/read')
       .then((result) => {
-        setData(result.data); 
+        setData(reformatData(result.data)); 
       })
 
     if(!wordDecor){
@@ -35,6 +43,23 @@ function App() {
     })
   }
 
+  const modifiedDate = (date) => {
+    date = new Date(date); 
+    const month = date.getMonth() +1; 
+    const day = date.getUTCDate(); 
+    const year = date.getFullYear(); 
+    return `${month} / ${day} / ${year}`
+}
+
+  function reformatData(data){
+    //reformat content & date
+    data.forEach((d, i) => {
+      d.content = parse(d.content); 
+      d.date = modifiedDate(d.date); 
+    })
+    return data; 
+  }
+
   return (
     <div className="App">
       <div class='cursor'></div>
@@ -44,13 +69,14 @@ function App() {
           <Routes key={window.location.pathname}>
               <Route path='/'element={<Home latestData={data.slice(0, 3)}/>}/>
               <Route path='/contact' element={<Contact/>}/>
+              <Route path='/loading' element={<div>Loading...</div>}/>
               <Route path='/works' element={<Works data={data}/>}/>
               {data.map((d, i) => {
                 return(
                   <Route path={`/works/${d.title}`} element={<Post data={d}/>}/>
               )
               })}
-               
+        
               <Route path="*" element={<div> Not Found or You do not have permission.</div>}/>
             </Routes>
         </AnimatePresence>

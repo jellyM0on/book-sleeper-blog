@@ -1,10 +1,10 @@
 import { motion as m } from 'framer-motion';
 
-import Sort from './sort-works';
+import Sort from '../components//sort-works';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import WorksList from './selection-section';
-import WorksHeader from './works-header';
+import WorksList from '../components/selection-section';
+import WorksHeader from '../components/works-header';
 import Post from '../components/post-page';
 
 function Works(props){
@@ -95,7 +95,7 @@ function Works(props){
         <div class='works-page'>
              <WorksHeader/>
              <div class='works-content'>
-                 <Sort setSortKey={setSortKey}/>
+                <Sort setSortKey={setSortKey}/>
                 <WorksList data={sortKey === 'alphabet' ? alphaSorted() : dateSorted()}/>
             </div>
         </div>
