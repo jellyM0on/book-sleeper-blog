@@ -8,7 +8,9 @@ export default function LatestPosts(props){
         <div class='latest-posts'>
             <h2>Latest Works...</h2>
             <LatestPostMain post={data[0]}/>
-            <ul>
+            <div className='latest-posts-list'>
+                <h2>Previous...</h2>
+                <ul>
                 {data.map((d, i) => {
                     if(i != 0){
                         return(
@@ -17,6 +19,8 @@ export default function LatestPosts(props){
                     }
                 })}
             </ul>
+            </div>
+            
         </div>
     )
 }

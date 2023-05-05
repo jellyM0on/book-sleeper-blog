@@ -15,8 +15,6 @@ export default function Post(props){
         fontSize: fontSize ? `${fontSize}em` : '1.25em'
     }
 
-    console.log(font);
-
     return(
         <div class='works-page'>
             <WorksHeader page={data.title} />

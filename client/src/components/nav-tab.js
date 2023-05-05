@@ -17,7 +17,7 @@ function NavTab(props){
             <Link to={`/${page}`} class='nav-link'>
                 <h3 id={page}>{page}</h3>
                 <img src={navdecor} 
-                style={location.pathname == `/${page}` ? {display:'unset'} : {}}
+                style={location.pathname == `/${page}` ? {visibility:'visible'} : {}}
                 ></img>
             </Link>
         )
@@ -26,12 +26,12 @@ function NavTab(props){
     // console.log(wordDecor) 
     return(
         <div class='nav-tab'>
+            {location.pathname == '/' ? <></> : <Link to='/'> <Title titleClass='nav-title'/> </Link> }
             <div class='nav-decor'>
                 <p><i>Random Word</i></p>
                 <p>"{wordDecor}"</p>    
             </div>
-
-            {location.pathname == '/' ? <></> : <Link to='/'> <Title titleClass='nav-title'/> </Link> }
+           
             <div class='nav-links'>
                 <NavLink page='Works'/>
                 <NavLink page='Contact'/>
