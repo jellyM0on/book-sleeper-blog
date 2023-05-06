@@ -9,7 +9,7 @@ export default function LatestPosts(props){
             <h2>Latest Works...</h2>
             <LatestPostMain post={data[0]}/>
             <div className='latest-posts-list'>
-                <h2>Previous...</h2>
+                <h2>More...</h2>
                 <ul>
                 {data.map((d, i) => {
                     if(i != 0){
