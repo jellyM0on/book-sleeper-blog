@@ -1,14 +1,14 @@
 import React from "react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 import Sort from '../components//sort-works';
 import WorksList from '../components/selection-section';
 
 export default function WorksSelection({data}){
+    const {sortKey, setSortKey, sortedData, setSortedData} = useOutletContext(); 
 
-    const [sortKey, setSortKey] = useState(''); 
-
-    const alphaSorted = () => {
+    function alphaSorted(){
 
         const findFirst = (data) => {
             const title = `${data.title}`; 
@@ -33,7 +33,6 @@ export default function WorksSelection({data}){
             let key = x; 
             sorted.forEach((d) => {
                 const letter = findFirst(d); 
-                console.log(key); 
                 if(letter == x){
                     arr.push(d); 
                 }
@@ -44,7 +43,7 @@ export default function WorksSelection({data}){
         return groupedArr; 
     }
 
-    const dateSorted = () => {
+    function dateSorted(){
 
         const sorted = data; 
 
@@ -77,14 +76,13 @@ export default function WorksSelection({data}){
         return groupedArr; 
     }
 
-    const SelectionPage = () => {
-        return(
-        <div class='works-selection'>
-            <Sort setSortKey={setSortKey}/>
-            <WorksList data={sortKey === 'alphabet' ? alphaSorted() : dateSorted()}/>
-        </div>
-        )
-    }
+    useEffect(() => {
+        setSortedData(dateSorted()); 
+    }, [])
+
+    useEffect(() => {
+        sortKey == 'alphabet' ? setSortedData(alphaSorted()) : setSortedData(dateSorted());
+    }, [sortKey])
 
     return(
         <div>
@@ -93,3 +91,6 @@ export default function WorksSelection({data}){
         </div>
     )
 }
+
+
+//regex post links 

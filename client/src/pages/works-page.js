@@ -20,11 +20,15 @@ function Works({data}){
 
     const [font, setFont] = useState(); 
     const [fontSize, setFontSize] = useState(); 
+    const [sortKey, setSortKey] = useState(); 
+    const [sortedData, setSortedData] = useState(); 
 
     return(
         <div class='works-page'>
              <WorksHeader page={page}/>
-            <Outlet context={{font, setFont, fontSize, setFontSize}}/>
+            <Outlet context={{font, setFont, fontSize, setFontSize, 
+                            sortKey, setSortKey,
+                            sortedData, setSortedData}}/>
         </div>
     )
 }

@@ -73,7 +73,7 @@ function App() {
                 <Route index element={<WorksSelection data={data}/>}/>
                 {data.map((d, i) => {
                   return(
-                    <Route path={`/works/${d._id}`} element={<Post data={d}/>}/>
+                    <Route path={`/works/${d._id}`} element={<Post data={data} postData={d}/>}/>
                 )
                 })}
               </Route>
