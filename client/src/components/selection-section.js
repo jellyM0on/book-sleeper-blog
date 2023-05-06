@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function WorksList(props){
-    const {key, data} = props; 
-
+export default function WorksList({data}){
     return(
         <div class='works-list'>
             {data.map((d, i) => {
@@ -19,5 +17,4 @@ export default function WorksList(props){
             })}
         </div>
     )
-
 }

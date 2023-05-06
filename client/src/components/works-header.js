@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
-export default function WorksHeader(props){
-    const {page} = props; 
+export default function WorksHeader({page}){
+    
     return(
         <div class='works-header'>
             {!page ? <h2>SELECTION</h2> 

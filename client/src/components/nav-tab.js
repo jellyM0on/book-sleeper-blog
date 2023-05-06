@@ -1,11 +1,8 @@
 import React from "react";
 import { Link, useLocation} from "react-router-dom";
+
 import navdecor from '../img-resources/nav-decor.png'
-
 import Title from "./title-heading";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-
 
 function NavTab(props){
     const {wordDecor} = props; 

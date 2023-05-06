@@ -11,6 +11,7 @@ import Contact from './pages/contact-page';
 import Works from './pages/works-page';
 import NavTab from './components/nav-tab';
 import Post from './components/post-page';
+import WorksSelection from './components/works-selection';
 
 function App() {
   const [data, setData] = useState([{}]);
@@ -62,21 +63,28 @@ function App() {
 
   return (
     <div className="App">
-      <div class='cursor'></div>
       <BrowserRouter>
         <NavTab wordDecor={wordDecor}/>
         <AnimatePresence initial={true}>
           <Routes key={window.location.pathname}>
               <Route path='/'element={<Home latestData={data.slice(0, 3)}/>}/>
               <Route path='/contact' element={<Contact/>}/>
-              <Route path='/loading' element={<div>Loading...</div>}/>
-              <Route path='/works' element={<Works data={data}/>}/>
+              {/* <Route path='/works' element={<Works data={data}/>}/>
               {data.map((d, i) => {
                 return(
                   <Route path={`/works/${d.title}`} element={<Post data={d}/>}/>
               )
-              })}
-        
+              })} */}
+
+              <Route path='/works' element={<Works data={data}/>}>
+                <Route index element={<WorksSelection data={data}/>}/>
+                {data.map((d, i) => {
+                  return(
+                    <Route path={`/works/${d.title}`} element={<Post data={d}/>}/>
+                )
+                })}
+              </Route>
+
               <Route path="*" element={<div> Not Found or You do not have permission.</div>}/>
             </Routes>
         </AnimatePresence>

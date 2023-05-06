@@ -16,14 +16,11 @@ export default function Post(props){
     }
 
     return(
-        <div class='works-page'>
-            <WorksHeader page={data.title} />
-            <div class='works-content post-content'>
+        <div class='works-content' id={data.title}>
                 <ContentEditor setFont={setFont} setFontSize={setFontSize} font={font} fontSize={fontSize}/>
                 <h2 style={textStyle}>{data.title}</h2>
                 <p style={textStyle}>
-                    {content}</p>
-            </div>     
+                    {content}</p>  
         </div>
     )
 }
