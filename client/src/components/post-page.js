@@ -6,8 +6,7 @@ import { useOutletContext } from 'react-router-dom';
 export default function Post(props){
     const {data} = props; 
 
-    const [font, setFont] = useOutletContext(); 
-    const [fontSize, setFontSize] = useOutletContext(); 
+    const {font, setFont, fontSize, setFontSize} = useOutletContext(); 
     
     const content = data.content;
 

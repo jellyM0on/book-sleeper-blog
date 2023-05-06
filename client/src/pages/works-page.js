@@ -24,8 +24,7 @@ function Works({data}){
     return(
         <div class='works-page'>
              <WorksHeader page={page}/>
-            <Outlet context={[font, setFont, fontSize, setFontSize]}/>
-       
+            <Outlet context={{font, setFont, fontSize, setFontSize}}/>
         </div>
     )
 }
