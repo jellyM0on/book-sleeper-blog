@@ -12,19 +12,15 @@ import Works from './pages/works-page';
 import NavTab from './components/nav-tab';
 import Post from './components/post-page';
 import WorksSelection from './components/works-selection';
+import Loading from './pages/loading-page';
 
 function App() {
   const [data, setData] = useState([{}]);
   const [wordDecor, setWordDecor] = useState();
 
   useEffect(() => {
-    if(!data){
-      return(
-        <div>Loading...</div>
-      )
-    }
-
-    Axios.get('http://localhost:5000/read')
+  
+      Axios.get('http://localhost:5000/read')
       .then((result) => {
         setData(reformatData(result.data)); 
       })
@@ -32,6 +28,8 @@ function App() {
     if(!wordDecor){
       // getWord(); 
     }
+  
+   
   }, [])
 
   async function getWord(){
@@ -63,19 +61,13 @@ function App() {
 
   return (
     <div className="App">
+      {Object.keys(data[0]).length == 0 ? <Loading/> : 
       <BrowserRouter>
         <NavTab wordDecor={wordDecor}/>
         <AnimatePresence initial={true}>
           <Routes key={window.location.pathname}>
               <Route path='/'element={<Home latestData={data.slice(0, 3)}/>}/>
               <Route path='/contact' element={<Contact/>}/>
-              {/* <Route path='/works' element={<Works data={data}/>}/>
-              {data.map((d, i) => {
-                return(
-                  <Route path={`/works/${d.title}`} element={<Post data={d}/>}/>
-              )
-              })} */}
-
               <Route path='/works' element={<Works data={data}/>}>
                 <Route index element={<WorksSelection data={data}/>}/>
                 {data.map((d, i) => {
@@ -88,8 +80,9 @@ function App() {
               <Route path="*" element={<div> Not Found or You do not have permission.</div>}/>
             </Routes>
         </AnimatePresence>
-      </BrowserRouter>
-    </div>
+      </BrowserRouter> 
+      }
+    </div> 
   );
 }
 

@@ -10,7 +10,7 @@ function Works({data}){
     const loc = useLocation(); 
 
     useEffect(() => {
-        if(loc.pathname == '/works'){
+        if(!(document.querySelector('.works-content'))){
             setPage(0); 
         } else {
             const currPage = document.querySelector('.works-content'); 
