@@ -28,8 +28,6 @@ function App() {
     if(!wordDecor){
       // getWord(); 
     }
-  
-   
   }, [])
 
   async function getWord(){
@@ -59,6 +57,9 @@ function App() {
     return data; 
   }
 
+  const [font, setFont] = useState(); 
+  const [fontSize, setFontSize] = useState(); 
+
   return (
     <div className="App">
       {Object.keys(data[0]).length == 0 ? <Loading/> : 
@@ -72,7 +73,7 @@ function App() {
                 <Route index element={<WorksSelection data={data}/>}/>
                 {data.map((d, i) => {
                   return(
-                    <Route path={`/works/${d.title}`} element={<Post data={d}/>}/>
+                    <Route path={`/works/${d._id}`} element={<Post data={d}/>}/>
                 )
                 })}
               </Route>

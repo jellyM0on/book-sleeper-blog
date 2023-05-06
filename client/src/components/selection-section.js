@@ -9,7 +9,7 @@ export default function WorksList({data}){
                         <h3>{d.key}...</h3>
                         {d.works.map((x, y) => {
                             return(
-                                <Link to={`./${x.title}`}> <p>{x.title}</p></Link>
+                                <Link to={`./${x._id}`}> <p>{x.title}</p></Link>
                             )
                         })}
                     </div>

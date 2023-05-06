@@ -18,10 +18,13 @@ function Works({data}){
         }
     }, [loc.pathname])
 
+    const [font, setFont] = useState(); 
+    const [fontSize, setFontSize] = useState(); 
+
     return(
         <div class='works-page'>
              <WorksHeader page={page}/>
-            <Outlet/>
+            <Outlet context={[font, setFont, fontSize, setFontSize]}/>
        
         </div>
     )

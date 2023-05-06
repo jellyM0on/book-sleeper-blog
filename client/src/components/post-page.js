@@ -1,12 +1,13 @@
 import ContentEditor from './works-content-editor';
 import WorksHeader from "./works-header";
 import { useState } from 'react';
+import { useOutletContext } from 'react-router-dom';
 
 export default function Post(props){
     const {data} = props; 
 
-    const [font, setFont] = useState(); 
-    const [fontSize, setFontSize] = useState(); 
+    const [font, setFont] = useOutletContext(); 
+    const [fontSize, setFontSize] = useOutletContext(); 
     
     const content = data.content;
 
