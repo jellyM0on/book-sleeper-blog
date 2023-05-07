@@ -15,12 +15,14 @@ export default function Post(props){
             collapsedData.push(x); 
            })
         })
+    } else {
+        collapsedData = data; 
     }
     
     const content = postData.content;
 
     const textStyle = {
-        fontFamily: font ? font : 'Times New Roman',
+        fontFamily: font ? font : 'Arial',
         fontSize: fontSize ? `${fontSize}em` : '1.25em'
     }
 
@@ -28,8 +30,8 @@ export default function Post(props){
         <div class='works-content' id={postData.title}>
                 <ContentEditor setFont={setFont} setFontSize={setFontSize} font={font} fontSize={fontSize}/>
                 <h2 style={textStyle}>{postData.title}</h2>
-                <p style={textStyle}>
-                    {content}</p>  
+                <div class='content-container' style={textStyle}>
+                    {content}</div>  
                 <PostNav data={collapsedData} postData={postData}/>
         </div>
     )

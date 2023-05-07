@@ -32,7 +32,7 @@ function NavTab(props){
            
             <div class='nav-links'>
                 <NavLink page='Works'/>
-                <NavLink page='Cntact'/>
+                <NavLink page='Contact'/>
             </div>
         </div>
     )

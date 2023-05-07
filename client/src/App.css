@@ -339,8 +339,8 @@ body{
     justify-content: flex-start; 
     align-items: flex-start;
    }
- 
 }
+
 
 .latest-posts h2{
   font-size: 2em; 
@@ -383,7 +383,6 @@ body{
   padding: 0;
   border-right: solid 2px; 
   border-left: solid 2px;
-  min-height: 100vh;
 }
 
 .works-header{
@@ -396,18 +395,21 @@ body{
 }
 
 .works-content{
-  padding: 2em 2em 0 2em
+  padding: 2em;
 }
 
 .sort-dropdown{
   font-family: body-font;
 }
 
-.sort-dropdown select{
+.sort-dropdown select,
+.select-font,
+.select-size{
   font-family: body-font;
   background-color: transparent;
-  text-align: right;
-  border-radius: 25px
+  border-radius: 25px;
+  border: solid 1px;
+  padding: 0.25em;
 }
 
 .works-list-section{
@@ -432,8 +434,39 @@ body{
   color:#FFFCF7;
 }
 
+/* post page */
 
 
+.content-editor{
+  display: flex;
+  justify-content: right;
+  gap: 1em;
+}
+
+.works-content> h2{
+  margin: 1em 0 1em 0; 
+}
+
+.post-nav-btns{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2em;
+  font-family: body-font;
+  justify-self: flex-end;
+}
+
+.post-nav-btns > *:hover{
+  text-decoration: underline;
+}
+
+.post-back-btn{
+  grid-column-start: 1;
+}
+
+.post-next-btn{
+  grid-column-start: 2;
+  justify-self: end;
+}
 
 
 

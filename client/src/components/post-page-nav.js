@@ -10,9 +10,9 @@ export default function PostNav({data, postData}){
     const nextData = data[currentIndex+1]; 
 
     return(
-        <div>
-            {!backData ? <></> :  <Link to={`/works/${backData._id}`}>back</Link> }
-            {!nextData ? <></> :  <Link to={`/works/${nextData._id}`}>next</Link>}
+        <div class='post-nav-btns'>
+            {!backData ? <></> :  <Link to={`/works/${backData._id}`} class='post-back-btn'>back</Link> }
+            {!nextData ? <></> :  <Link to={`/works/${nextData._id}`} class='post-next-btn'>next</Link>}
         </div>
     )
 }
