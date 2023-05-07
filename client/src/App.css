@@ -316,8 +316,11 @@ body{
 
 .latest-post-main p{
   margin-bottom: 1em;
+  font-family: 'Arial'; 
+  font-size: 1.15em;
+  
 }
-.latest-post-main p,
+
 .latest-post-item p{
   font-family: body-font;
   font-size: 1.15em; 
@@ -394,6 +397,10 @@ body{
   font-size: 1.5em;
 }
 
+.works-header h2[class='active-selection'] a:hover{
+  text-decoration: underline
+}
+
 .works-content{
   padding: 2em;
 }
@@ -467,6 +474,10 @@ body{
   grid-column-start: 2;
   justify-self: end;
 }
+
+/* contact page */
+
+
 
 
 

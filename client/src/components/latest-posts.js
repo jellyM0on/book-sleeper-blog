@@ -14,7 +14,7 @@ export default function LatestPosts(props){
                 {data.map((d, i) => {
                     if(i != 0){
                         return(
-                            <LatestPostItem key={i} title={d.title} date={d.date}/>
+                            <LatestPostItem key={i} title={d.title} date={d.date} id={d._id}/>
                          )
                     }
                 })}
