@@ -162,7 +162,7 @@ body{
 
 .nav-link img{
   width: 1em;
-  visibility:hidden;
+  visibility: hidden;
 }
 
 .nav-link:hover{
@@ -442,12 +442,14 @@ body{
 }
 
 /* post page */
-
-
 .content-editor{
   display: flex;
   justify-content: right;
   gap: 1em;
+}
+
+.content-editor >label{
+  display: none; 
 }
 
 .works-content> h2{
@@ -476,6 +478,116 @@ body{
 }
 
 /* contact page */
+.contact-page{
+  display: grid; 
+  grid-template-columns: 1fr 1fr;
+  /* border: solid 1px;  */
+  height: fit-content;
+  margin: 2em 0 2em 0; 
+}
+
+
+.contact-info{
+  background-color: black;
+  padding: 4em;
+  align-self: center;
+  /* width:50%; */
+}
+
+.contact-info > *{
+  color:#FFFCF7;
+}
+
+.contact-info > .social-links img{
+  filter: invert(98%) sepia(30%) saturate(476%) hue-rotate(296deg) brightness(104%) contrast(101%);
+}
+
+.contact-info h2{
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 3em; 
+}
+
+.contact-info p{
+  font-family: body-font; 
+  margin: 2em 0 1em 0; 
+}
+
+.contact-form{
+  display: flex; 
+  flex-direction: column;
+  justify-self: center;
+  align-self: center;
+  width: 75%;
+  gap:0.5em;
+  font-family: 'Arial';
+}
+
+.contact-form p{
+  font-family: body-font; 
+}
+
+.contact-form input,
+.contact-form textarea{
+  font-family: 'Arial';
+  font-size: 1em;
+  border: solid 1px; 
+  background-color: transparent;
+}
+
+.contact-form textarea{
+  height: 20em; 
+  resize: none;
+  overflow-y: scroll;
+}
+
+
+.contact-form button[type='submit']{
+  width: fit-content; 
+  align-self: flex-end;
+  background: transparent; 
+  font-family: body-font;
+  border: none;
+  font-size: 1em;
+}
+
+.contact-form button[type='submit']:hover{
+  text-decoration: underline;
+}
+
+.form-result{
+  position: absolute; 
+  top: 2em;
+  left: 50%;
+  transform:translateX(-50%);
+  background-color: #FFFCF7;
+  border: solid 2px; 
+  padding: 1em;
+  font-family: body-font; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-result button{
+  justify-self: center;
+  background-color: transparent;
+  margin-top: 1em;
+  border: none;
+  text-decoration: underline;
+}
+
+.form-fail{
+  border: solid 4px rgb(154, 47, 47);;
+}
+
+
+
+
+
+
+
+
 
 
 

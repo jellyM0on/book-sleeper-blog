@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation} from "react-router-dom";
+import { matchPath } from "react-router-dom";
 
 import navdecor from '../img-resources/nav-decor.png'
 import Title from "./title-heading";
@@ -15,7 +16,7 @@ function NavTab(props){
             <Link to={`/${page.toLowerCase()}`} class='nav-link'>
                 <h3 id={page}>{page}</h3>
                 <img src={navdecor} 
-                style={location.pathname == `/${page}` ? {visibility:'visible'} : {}}
+                style={matchPath({path: `/${page}/*`, exact: false}, location.pathname) ? {visibility:'visible'} : {}}
                 ></img>
             </Link>
         )

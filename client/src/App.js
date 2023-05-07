@@ -19,7 +19,6 @@ function App() {
   const [wordDecor, setWordDecor] = useState();
 
   useEffect(() => {
-  
       Axios.get('http://localhost:5000/read')
       .then((result) => {
         setData(reformatData(result.data)); 
@@ -56,9 +55,6 @@ function App() {
     })
     return data; 
   }
-
-  const [font, setFont] = useState(); 
-  const [fontSize, setFontSize] = useState(); 
 
   return (
     <div className="App">

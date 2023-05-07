@@ -91,6 +91,3 @@ export default function WorksSelection({data}){
         </div>
     )
 }
-
-
-//regex post links 
