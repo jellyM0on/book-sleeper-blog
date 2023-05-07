@@ -85,8 +85,8 @@ export default function WorksSelection({data}){
     }, [sortKey])
 
     return(
-        <div>
-            <Sort setSortKey={setSortKey}/>
+        <div class='works-content'>
+            <Sort setSortKey={setSortKey} sortKey={sortKey}/>
             <WorksList data={sortKey === 'alphabet' ? alphaSorted() : dateSorted()}/>
         </div>
     )

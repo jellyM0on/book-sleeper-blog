@@ -9,9 +9,10 @@ function NavTab(props){
     const location = useLocation();
 
     const NavLink = (props) => {
-        const {page} = props
+        const {page} = props;
+        
         return(
-            <Link to={`/${page}`} class='nav-link'>
+            <Link to={`/${page.toLowerCase()}`} class='nav-link'>
                 <h3 id={page}>{page}</h3>
                 <img src={navdecor} 
                 style={location.pathname == `/${page}` ? {visibility:'visible'} : {}}
@@ -31,7 +32,7 @@ function NavTab(props){
            
             <div class='nav-links'>
                 <NavLink page='Works'/>
-                <NavLink page='Contact'/>
+                <NavLink page='Cntact'/>
             </div>
         </div>
     )

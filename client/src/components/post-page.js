@@ -8,6 +8,7 @@ export default function Post(props){
     const {font, setFont, fontSize, setFontSize, sortedData} = useOutletContext(); 
 
     let collapsedData = []; 
+    
     if (sortedData){
         sortedData.forEach((d,i) => {
            d.works.forEach((x, i) => {
@@ -16,7 +17,6 @@ export default function Post(props){
         })
     }
     
-    console.log(collapsedData); 
     const content = postData.content;
 
     const textStyle = {
