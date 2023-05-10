@@ -43,6 +43,7 @@ body{
   display: flex; 
   flex-direction: column;
   justify-content: center;
+  /* align-items: center; */
 }
 
 /* loading page */
@@ -176,10 +177,11 @@ body{
 /* pages */
 .works-page, .contact-page{
   padding: 0 2em 0 2em;
+  box-sizing: border-box;
   @media screen and (max-width: 799px) {
     display: flex; 
     flex-direction: column; 
-    padding-right: 1em;
+    /* padding-right: 1em; */
   }
 }
 
@@ -386,6 +388,7 @@ body{
   padding: 0;
   border-right: solid 2px; 
   border-left: solid 2px;
+  /* align-self: flex-start; */
 }
 
 .works-header{
@@ -482,8 +485,26 @@ body{
   display: grid; 
   grid-template-columns: 1fr 1fr;
   /* border: solid 1px;  */
-  height: fit-content;
-  margin: 2em 0 2em 0; 
+  height: calc(100vh - 65px);
+  width: 100%; 
+  
+
+  @media screen and (max-width: 799px) {
+    margin: 2em 0 2em 0; 
+    height: fit-content; 
+    /* width: 90%; */
+    /* border: solid 1px;  */
+    display: flex; 
+    flex-direction: column;
+    gap: 2em; 
+    justify-content: center;
+    align-items: center;
+    /* align-self: center; */
+   }
+
+   @media  screen and (min-height: 1080px) {
+    height: 1080px; 
+   }
 }
 
 
@@ -491,7 +512,11 @@ body{
   background-color: black;
   padding: 4em;
   align-self: center;
-  /* width:50%; */
+
+  @media screen and (max-width: 799px) {
+    box-sizing: border-box;
+    width: 100%;
+   }
 }
 
 .contact-info > *{
@@ -521,6 +546,13 @@ body{
   width: 75%;
   gap:0.5em;
   font-family: 'Arial';
+
+  @media screen and (max-width: 799px) {
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+   }
+
 }
 
 .contact-form p{
@@ -540,7 +572,6 @@ body{
   resize: none;
   overflow-y: scroll;
 }
-
 
 .contact-form button[type='submit']{
   width: fit-content; 
