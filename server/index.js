@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const nodemailer = require('nodemailer'); 
 
+const userRoutes = require('./routes/user')
 const app = express();
 
 
@@ -10,6 +11,13 @@ require('dotenv/config');
 
 app.use(express.json());
 app.use(cors()); 
+
+app.use((req, res, next) => {
+    console.log(req.path, req.method)
+    next()
+  })
+
+app.use(userRoutes)
 
 const TextModel = require('./models/text');
 

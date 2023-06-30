@@ -1,10 +1,9 @@
 import './App.css';
 import Axios from 'axios'; 
 import parse from 'html-react-parser'
-import { BrowserRouter, Routes, Route, RedirectFunction } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-
 
 import Home from './pages/home-page';
 import Contact from './pages/contact-page';
@@ -13,6 +12,7 @@ import NavTab from './components/nav-tab';
 import Post from './components/post-page';
 import WorksSelection from './components/works-selection';
 import Loading from './pages/loading-page';
+import CmsPage from './pages/cms-page';
 
 function App() {
   const [data, setData] = useState([{}]);
@@ -58,12 +58,13 @@ function App() {
 
   return (
     <div className="App">
-      {Object.keys(data[0]).length == 0 ? <Loading/> : 
+      {Object.keys(data[0]).length === 0 ? <Loading/> : 
       <BrowserRouter>
         <NavTab wordDecor={wordDecor}/>
         <AnimatePresence initial={true}>
           <Routes key={window.location.pathname}>
               <Route path='/'element={<Home latestData={data.slice(0, 3)}/>}/>
+              <Route path='/admin' element={<CmsPage/>}/>
               <Route path='/contact' element={<Contact/>}/>
               <Route path='/works' element={<Works data={data}/>}>
                 <Route index element={<WorksSelection data={data}/>}/>
