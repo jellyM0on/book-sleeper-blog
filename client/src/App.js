@@ -13,6 +13,8 @@ import Post from './components/post-page';
 import WorksSelection from './components/works-selection';
 import Loading from './pages/loading-page';
 import CmsPage from './pages/cms-page';
+import LogIn from './pages/login-page';
+import Footer from './components/footer';
 
 function App() {
   const [data, setData] = useState([{}]);
@@ -66,6 +68,7 @@ function App() {
               <Route path='/'element={<Home latestData={data.slice(0, 3)}/>}/>
               <Route path='/admin' element={<CmsPage/>}/>
               <Route path='/contact' element={<Contact/>}/>
+              <Route path='/login' element={<LogIn/>}/>
               <Route path='/works' element={<Works data={data}/>}>
                 <Route index element={<WorksSelection data={data}/>}/>
                 {data.map((d, i) => {
@@ -78,6 +81,7 @@ function App() {
               <Route path="*" element={<div> Not Found or You do not have permission.</div>}/>
             </Routes>
         </AnimatePresence>
+        <Footer/>
       </BrowserRouter> 
       }
     </div> 
