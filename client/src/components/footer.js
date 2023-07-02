@@ -14,7 +14,7 @@ export default function Footer(){
     return(
         <footer>
             <p>Copyright 2023</p>
-            {user === null ? <Link to='/login'><p>Admin Log In</p></Link> : <p>Admin</p>}
+            {user === null ? <Link to='/login'><p>Admin Log In</p></Link> : <Link to='/content-management'><p>Admin</p></Link>}
             {user != null ? <button onClick={handleLogout}>Log out</button> : <></>}
             
         </footer>

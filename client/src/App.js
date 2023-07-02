@@ -1,9 +1,10 @@
 import './App.css';
 import Axios from 'axios'; 
 import parse from 'html-react-parser'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useAuthContext } from './hooks/useAuthContext';
 
 import Home from './pages/home-page';
 import Contact from './pages/contact-page';
@@ -17,6 +18,7 @@ import LogIn from './pages/login-page';
 import Footer from './components/footer';
 
 function App() {
+  const { user } = useAuthContext();
   const [data, setData] = useState([{}]);
   const [wordDecor, setWordDecor] = useState();
 
@@ -68,7 +70,8 @@ function App() {
               <Route path='/'element={<Home latestData={data.slice(0, 3)}/>}/>
               <Route path='/admin' element={<CmsPage/>}/>
               <Route path='/contact' element={<Contact/>}/>
-              <Route path='/login' element={<LogIn/>}/>
+              <Route path='/login' element={!user ? <LogIn/> : <Navigate to='/content-management'/>}/>
+              <Route path='/content-management' element={user ? <CmsPage/> : <Navigate to='/login'/>}/>
               <Route path='/works' element={<Works data={data}/>}>
                 <Route index element={<WorksSelection data={data}/>}/>
                 {data.map((d, i) => {

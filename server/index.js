@@ -4,6 +4,7 @@ const cors = require('cors');
 const nodemailer = require('nodemailer'); 
 
 const userRoutes = require('./routes/user')
+const workRoutes = require('./routes/works')
 const app = express();
 
 
@@ -17,7 +18,9 @@ app.use((req, res, next) => {
     next()
   })
 
+app.use(workRoutes)
 app.use(userRoutes)
+
 
 const TextModel = require('./models/text');
 
