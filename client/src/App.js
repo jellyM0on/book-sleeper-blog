@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useAuthContext } from './hooks/useAuthContext';
+import { useWorksContext } from './hooks/useWorksContext';
 
 import Home from './pages/home-page';
 import Contact from './pages/contact-page';
@@ -22,9 +23,12 @@ function App() {
   const [data, setData] = useState([{}]);
   const [wordDecor, setWordDecor] = useState();
 
+  const {works, dispatch} = useWorksContext()
+
   useEffect(() => {
       Axios.get('http://localhost:5000/read')
       .then((result) => {
+        dispatch({type: 'SET_WORKS', payload: result.data})
         setData(reformatData(result.data)); 
       })
 
