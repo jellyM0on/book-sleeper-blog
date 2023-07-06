@@ -1,16 +1,24 @@
 import React from 'react'
-import AddWorksForm from '../components/cmsworks-form'
+import AddWorksForm from '../components/cmsadd-form'
+import CMSWorksList from '../components/cmsworks-works';
+import EditWorkForm from '../components/cmsedit-form';
+import { useState, useEffect } from 'react';
+import { useWorksContext } from "../hooks/useWorksContext";
+import { useLocation } from 'react-router-dom';
 
-export default function CmsPage(){
 
-    let currentDate = new Date(); 
+
+export default function CmsPage({data, form}){
+    const {works} = useWorksContext()
+    const [selected, setSelected] = useState(0); 
+
     return(
-        <div>
-            <h2>Manage Content</h2>
-            <h3>New Post</h3>
-            <AddWorksForm/>
-            <h3>All Posts</h3>
-            {/* table of all posts with delete and edit buttons */}
+        <div className='cms-page'>
+            <h3>Content Manager</h3>
+            <div>
+                <CMSWorksList setSelected={setSelected} data={data}/>
+                {form ? <EditWorkForm work={form} setSelected={setSelected} /> : <AddWorksForm/>}
+            </div>
         </div>
     )
 }

@@ -7,9 +7,9 @@ export const worksReducer = (state, action) => {
         case 'SET_WORKS': 
             return { works: action.payload }
         case 'CREATE_WORK': 
-            return { works: [action.payload, [...state.works]]}
+            return { works: [action.payload, ...state.works]}
         case 'DELETE_WORK': 
-            return { works: state.workouts.filter((x) => x._id !== action.payload._id )}
+            return { works: state.works.filter((x) => x._id !== action.payload._id )}
         default: 
             return state
     }

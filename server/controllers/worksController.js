@@ -2,7 +2,7 @@ const Works = require('../models/text');
 const mongoose = require('mongoose'); 
 
 const getWorks = async(req, res) => {
-    const works = await Works.find({}).sort({createdAt: -1})
+    const works = await Works.find({}).sort({createdAt: 1})
     res.status(200).json(works)
 }
 

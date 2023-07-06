@@ -15,6 +15,7 @@ import Post from './components/post-page';
 import WorksSelection from './components/works-selection';
 import Loading from './pages/loading-page';
 import CmsPage from './pages/cms-page';
+import EditWorkForm from './components/cmsedit-form';
 import LogIn from './pages/login-page';
 import Footer from './components/footer';
 
@@ -71,11 +72,15 @@ function App() {
         <NavTab wordDecor={wordDecor}/>
         <AnimatePresence initial={true}>
           <Routes key={window.location.pathname}>
-              <Route path='/'element={<Home latestData={data.slice(0, 3)}/>}/>
+              <Route path='/'element={<Home latestData={works.slice(0, 3)}/>}/>
               <Route path='/admin' element={<CmsPage/>}/>
               <Route path='/contact' element={<Contact/>}/>
               <Route path='/login' element={!user ? <LogIn/> : <Navigate to='/content-management'/>}/>
-              <Route path='/content-management' element={user ? <CmsPage/> : <Navigate to='/login'/>}/>
+              <Route path='/content-management' element={user ? <CmsPage data={data}/> : <Navigate to='/login'/>}/>
+              {works.map((d, i) => {
+                  return(
+                    <Route path={`/content-management/${d._id}`}  element={user ? <CmsPage data={data} form={d}/> : <Navigate to='/login'/>}/>
+              )})}
               <Route path='/works' element={<Works data={data}/>}>
                 <Route index element={<WorksSelection data={data}/>}/>
                 {data.map((d, i) => {

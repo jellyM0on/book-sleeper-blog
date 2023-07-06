@@ -621,7 +621,56 @@ footer {
   font-size: 0.5em;
 }
 
+/* cms */
+.cms-page{
+  margin: 2em;
+  padding: 0;
+  border: solid 1px;
+  border-top: none;
+  border-bottom: none;
+}
 
+.cms-page > div{
+  display: flex; 
+}
+
+.cms-form{
+  border: solid 1px;
+  width: 70vw;
+  display: flex; 
+  flex-direction: column;
+  gap: 1em;
+  margin-left: 2em;
+}
+.cms-form label{
+  font-weight: bold;
+}
+.cms-form input{
+font-size: 1em;
+ border: none;
+ border-bottom: solid 1px; 
+ font-family: inherit;
+ background-color: transparent;
+}
+
+.cms-form textarea{
+  font-size: 1em;
+  height: 20em; 
+  font-family: inherit;
+  background-color: transparent;
+}
+
+.cms-works-list{
+  height: 90vh; 
+  overflow-y: scroll;
+  border-left: solid 1px;
+}
+
+.cms-list-item{
+  border: none; 
+  border-bottom: solid 1px; 
+ 
+}
 
 
 

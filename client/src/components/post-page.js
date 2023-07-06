@@ -20,6 +20,7 @@ export default function Post(props){
     }
     
     const content = postData.content;
+    console.log(content); 
 
     const textStyle = {
         fontFamily: font ? font : 'Arial',
