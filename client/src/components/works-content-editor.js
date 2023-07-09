@@ -10,16 +10,16 @@ export default function ContentEditor(props){
     }
 
     return(
-        <div class='content-editor'>
-            <label for='select-font'>Font</label>
-            <select class='select-font' onChange={changeFont} value={font} name='select-font'>
+        <div className='content-editor'>
+            <label htmlFor='select-font-btn'>Font</label>
+            <select className='select-font' onChange={changeFont} value={font} name='select-font' id='select-font-btn'>
                 <option value='Arial' >Arial</option>
                 <option value='Times New Roman'>Times New Roman</option>
                 <option value='Calibri'>Calibri</option>
                 <option value='Helvetica'>Helvetica</option>
             </select>
-            <label for='font-size'>Size</label>
-            <input name='font-size'class='select-size'onChange={changeSize} type='number' value={fontSize ? fontSize : 1.25} min={0.5} max={2} step={0.25}></input>
+            <label htmlFor='font-size-btn'>Size</label>
+            <input name='font-size'className='select-size' id='font-size-btn' onChange={changeSize} type='number' value={fontSize ? fontSize : 1.25} min={0.5} max={2} step={0.25}></input>
         </div>
     )
 }

@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 export default function WorksList({data}){
     return(
-        <div class='works-list'>
+        <div className='works-list'>
             {data.map((d, i) => {
                 return(
-                    <div class='works-list-section'> 
+                    <div className='works-list-section' key={i}> 
                         <h3>{d.key}...</h3>
-                        {d.works.map((x, y) => {
+                        {d.works.map((x, i) => {
                             return(
-                                <Link to={`./${x._id}`}> <p>{x.title}</p></Link>
+                                <Link to={`./${x._id}`} key={i}> <p>{x.title}</p></Link>
                             )
                         })}
                     </div>

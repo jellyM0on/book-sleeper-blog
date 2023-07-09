@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { useWorksContext } from "../hooks/useWorksContext";
 import { useEffect } from "react";
-import Axios from 'axios'; 
-
-
 
 export default function AddWorksForm(){
     const { dispatch } = useWorksContext()
@@ -65,18 +62,20 @@ export default function AddWorksForm(){
         <form className='cms-form'>
             <h3>Create a new post</h3>
             <div>
-                <label for='title'>Title: </label>
-                <input name='title' type='text' required onChange={(e) => setTitle(e.target.value)}></input>
+                <label htmlFor='add-title'>Title: </label>
+                <input name='title' id='add-title' type='text' required onChange={(e) => setTitle(e.target.value)}></input>
             </div>
             <div>
-                <label for='date'>Date: </label>
-                <input name='date' type='date' defaultValue={new Date().toISOString().slice(0, 10)} required onChange={(e) => { setDate(new Date(e.target.value))}
+                <label htmlFor='add-date'>Date: </label>
+                <input name='date' id='add-date' type='date' defaultValue={new Date().toISOString().slice(0, 10)} required onChange={(e) => { setDate(new Date(e.target.value))}
                 }></input>
             </div>
-            <label for='content'>Body: </label>
-            <textarea name='content' type='text' required onChange={(e) => setContent(e.target.value)}></textarea>
-        
-            <button onClick={handleSubmit}>Add Work</button>
+            <label htmlFor='add-content'>Body: </label>
+            <textarea name='content' id='add-content' type='text' required onChange={(e) => setContent(e.target.value)}></textarea>
+                
+            <div className='cms-form-btns'>
+                <button onClick={handleSubmit} className='cms-save-btn'>Save post</button>
+            </div>
         </form>
     )
 }

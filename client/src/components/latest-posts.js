@@ -5,7 +5,7 @@ export default function LatestPosts(props){
     const {data} = props;
 
     return(
-        <div class='latest-posts'>
+        <div className='latest-posts'>
             <h2>Latest Works...</h2>
             <LatestPostMain post={data[0]}/>
             <div className='latest-posts-list'>

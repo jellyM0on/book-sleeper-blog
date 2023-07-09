@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { useWorksContext } from "../hooks/useWorksContext";
-import CMSWorksList from "./cmsworks-works";
-import { useLocation } from "react-router-dom";
-import parse from 'html-react-parser'
-import { useNavigate } from "react-router-dom";
+
+import CMSDeleteBtn from "./cmsdelete-btn";
 
 export default function EditWorkForm(props){
-    const {work, setSelected} = props; 
+    const {work} = props; 
     const { works, dispatch } = useWorksContext()
 
     const [title, setTitle] = useState(``)
@@ -63,27 +61,6 @@ export default function EditWorkForm(props){
         }
     }
 
-    const handleDelete = async(e) => {
-        e.preventDefault() 
-        const currIndex = works.findIndex(x => x._id == id); 
-        const nextIndex = works[currIndex+1]; 
-        const response = await fetch(`http://localhost:5000/${id}`, {
-            method: 'DELETE', 
-        })
-        const json = await response.json()
-
-        if (response.ok) {
-          dispatch({type: 'DELETE_WORK', payload: json})
-        }
-
-        if(nextIndex){
-            window.location.replace(`/content-management/${nextIndex._id}`)
-        } else {
-            window.location.replace('/content-management'); 
-        }
-        
-    }
-
     function cleanText(text){
         if(text && typeof(text) == "object"){
             let {props} = text;
@@ -121,21 +98,23 @@ export default function EditWorkForm(props){
         <div>
             <form className='cms-form' id='edit-form'>
             <h3>Edit post</h3>
-            {/* <p>ID: {work._id}</p> */}
+            <p>ID: {work._id}</p>
             <div>
-                <label for='title'>Title: </label>
+                <label htmlFor='title-form'>Title: </label>
                 <input name='title' type='text' id='title-form' required onChange={(e) =>{ setTitle(e.target.value)} }></input>
             </div>
             <div>
-                <label for='date'>Date: </label>
+                <label htmlFor='date-form'>Date: </label>
                 <input name='date' type='date' id='date-form' required onChange={(e) => { setDate(e.target.value) }
                 }></input>
             </div>
-            <label for='content'>Body: </label>
+            <label htmlFor='body-form'>Body: </label>
             <textarea name='content' type='text' id='body-form' required onChange={(e) => { setContent((e.target.value))} }></textarea>
 
-            <button onClick={handleDelete}>Delete</button>
-            <button onClick={handleSubmit}>Save</button>
+            <div className='cms-form-btns'>
+                <button onClick={handleSubmit} className='cms-save-btn'>Save</button>
+                <CMSDeleteBtn id={id}/>
+            </div>
         </form>
         </div>
        

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
 
 import Sort from '../components//sort-works';
@@ -85,7 +84,7 @@ export default function WorksSelection({data}){
     }, [sortKey])
 
     return(
-        <div class='works-content'>
+        <div className='works-content'>
             <Sort setSortKey={setSortKey} sortKey={sortKey}/>
             <WorksList data={sortKey === 'alphabet' ? alphaSorted() : dateSorted()}/>
         </div>

@@ -2,10 +2,8 @@ import React from 'react'
 import AddWorksForm from '../components/cmsadd-form'
 import CMSWorksList from '../components/cmsworks-works';
 import EditWorkForm from '../components/cmsedit-form';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useWorksContext } from "../hooks/useWorksContext";
-import { useLocation } from 'react-router-dom';
-
 
 
 export default function CmsPage({data, form}){
@@ -14,8 +12,8 @@ export default function CmsPage({data, form}){
 
     return(
         <div className='cms-page'>
-            <h3>Content Manager</h3>
-            <div>
+            <h2>CONTENT MANAGER</h2>
+            <div className='cms-content'>
                 <CMSWorksList setSelected={setSelected} data={data}/>
                 {form ? <EditWorkForm work={form} setSelected={setSelected} /> : <AddWorksForm/>}
             </div>

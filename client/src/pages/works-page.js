@@ -1,10 +1,9 @@
-import { motion as m } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 
 import WorksHeader from '../components/works-header';
 
-function Works({data}){
+function Works(){
 
     const [page, setPage] = useState(''); 
     const loc = useLocation(); 
@@ -24,7 +23,7 @@ function Works({data}){
     const [sortedData, setSortedData] = useState(); 
 
     return(
-        <div class='works-page'>
+        <div className='works-page'>
              <WorksHeader page={page}/>
             <Outlet context={{font, setFont, fontSize, setFontSize, 
                             sortKey, setSortKey,

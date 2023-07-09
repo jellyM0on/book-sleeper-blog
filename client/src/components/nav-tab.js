@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useLocation} from "react-router-dom";
 import { matchPath } from "react-router-dom";
 
@@ -13,25 +12,24 @@ function NavTab(props){
         const {page} = props;
         
         return(
-            <Link to={`/${page.toLowerCase()}`} class='nav-link'>
+            <Link to={`/${page.toLowerCase()}`} className='nav-link'>
                 <h3 id={page}>{page}</h3>
-                <img src={navdecor} 
+                <img alt='navigation decoration' src={navdecor} 
                 style={matchPath({path: `/${page}/*`, exact: false}, location.pathname) ? {visibility:'visible'} : {}}
                 ></img>
             </Link>
         )
     }
 
-    // console.log(wordDecor) 
     return(
-        <div class='nav-tab'>
-            {location.pathname == '/' ? <></> : <Link to='/'> <Title titleClass='nav-title'/> </Link> }
-            <div class='nav-decor'>
+        <div className='nav-tab'>
+            {location.pathname === '/' ? <></> : <Link to='/'> <Title titleClass='nav-title'/> </Link> }
+            <div className='nav-decor'>
                 <p><i>Random Word</i></p>
                 <p>"{wordDecor}"</p>    
             </div>
            
-            <div class='nav-links'>
+            <div className='nav-links'>
                 <NavLink page='Works'/>
                 <NavLink page='Contact'/>
             </div>

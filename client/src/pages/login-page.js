@@ -11,15 +11,17 @@ const LogIn = () => {
         await login(email, password); 
     }
     return(
-        <form className="login-form" onSubmit={handleLogin}>
-            <h3>Admin Log In</h3>
-            <label>Email</label>
-            <input type='email' onChange={(e) => setEmail(e.target.value)} value={email}></input>
-            <label>Password</label>
-            <input type='password' onChange={(e) => setPassword(e.target.value)} value={password}></input>
-            <button disabled ={isLoading} >Log in</button>
-            {error && <div>error</div>}
-        </form>
+        <div className='login-page'>
+            <form className="login-form" onSubmit={handleLogin}>
+                <h2>Log In</h2>
+                <label>Email</label>
+                <input type='email' onChange={(e) => setEmail(e.target.value)} value={email} required></input>
+                <label>Password</label>
+                <input type='password' onChange={(e) => setPassword(e.target.value)} value={password} required></input>
+                <button disabled ={isLoading} >Log in</button>
+                {error && <div className='login-error'>*{error}</div>}
+            </form>
+        </div>
     )
 }
 

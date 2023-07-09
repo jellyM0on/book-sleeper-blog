@@ -135,7 +135,7 @@ body{
 .nav-links{
   grid-column-start: 3;
   grid-row: 1;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   display: flex;
   flex-direction: row; 
@@ -175,7 +175,7 @@ body{
 }
 
 /* pages */
-.works-page, .contact-page{
+.works-page, .contact-page, .cms-page{
   padding: 0 2em 0 2em;
   box-sizing: border-box;
   @media screen and (max-width: 799px) {
@@ -383,7 +383,7 @@ body{
 }
 
 /* works page */
-.works-page{
+.works-page, .cms-page{
   margin: 2em;
   padding: 0;
   border-right: solid 2px; 
@@ -614,34 +614,183 @@ body{
 
 /* footer */
 footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 2em 0 2em;
+  /* border: solid 1px; */
+
+}
+
+.footer-main-items{
+  grid-column: 2;
+  /* border: solid 1px; */
+  justify-self: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* login and logout button */
+.auth-btn{ 
+  background-color: transparent;
+  font-family: body-font;
   font-size: 0.5em;
+  border: none;
+}
+
+.auth-btn:hover{
+  text-decoration: underline;
+}
+
+footer > .social-links{
+  justify-self: flex-end;
+}
+
+footer > .social-links img{
+  width: 3em;
+}
+
+/* log in page */
+.login-page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2em; 
+  height: calc(100vh - (180.25px));
+}
+
+.login-page h2{
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.login-form{
+  border: solid 2px;
+  padding: 4em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin: 1em 0 1em 0;
+  font-family: body-font;
+}
+
+.login-form input{
+  width: 15em;
+  font-size: 1em;
+  border-radius: 0;
+  border: solid 1px;
+}
+
+.login-form button{
+  width: fit-content;
+  background-color: transparent;
+  font-family: body-font;
+  border: none;
+  font-size: 1em;
+  align-self: center;
+  margin-top: 1em;
+}
+
+.login-form button:hover{
+  text-decoration: underline;
+}
+
+.login-error{
+  color: red; 
 }
 
 /* cms */
-.cms-page{
-  margin: 2em;
-  padding: 0;
-  border: solid 1px;
-  border-top: none;
-  border-bottom: none;
+
+.cms-page h2{
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 2em;
+  margin-bottom: 1em;
+  border-bottom: solid 2px;
+  padding: 0 0 0.5em 0.5em;
 }
 
 .cms-page > div{
   display: flex; 
+  margin: 0 2em 0 2em;
 }
 
-.cms-form{
+
+/* cms list */
+
+.cms-works-list{
+  height: 90vh;
+  overflow-y: scroll;
+  display: flex; 
+  flex-direction: column;
+  font-family: body-font;
+
+}
+
+.cms-works-list h3{
+  font-family: body-font;
+  font-size: 1.5em;
+}
+
+
+.new-post-btn{
+  margin: 1em 0 1em 0;
+  font-size: 1em;
   border: solid 1px;
+  background-color: black;
+  color:#FFFCF7;
+  border: solid 1px;
+}
+
+.new-post-btn:hover{
+  background-color: transparent;
+  color: black;
+}
+
+.cms-list-item{
+  border: none; 
+  border-bottom: solid 1px; 
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.cms-list-item:hover{
+  background-color: black;
+}
+
+.cms-list-item:hover p{
+  color:#FFFCF7;
+}
+
+.cms-delete-btn{
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cms-delete-btn img{
+  width: 1em;
+  filter: invert(9%) sepia(82%) saturate(5285%) hue-rotate(357deg) brightness(85%) contrast(110%);
+}
+
+/* cms forms */
+.cms-form{
   width: 70vw;
   display: flex; 
   flex-direction: column;
   gap: 1em;
   margin-left: 2em;
+  font-family: body-font;
 }
+
 .cms-form label{
   font-weight: bold;
 }
@@ -655,23 +804,85 @@ font-size: 1em;
 
 .cms-form textarea{
   font-size: 1em;
-  height: 20em; 
-  font-family: inherit;
+  height: 50vh;
+  font-family: arial;
   background-color: transparent;
-}
-
-.cms-works-list{
-  height: 90vh; 
+  resize: none;
   overflow-y: scroll;
-  border-left: solid 1px;
 }
 
-.cms-list-item{
+.cms-form-btns{
+  display: flex;
+  align-items: center;
+}
+
+.cms-save-btn{
+  background: transparent;
+  font-family: body-font;
   border: none; 
-  border-bottom: solid 1px; 
- 
+  text-align: start;
+  font-size: 1em;
 }
 
+.cms-save-btn:hover{
+  text-decoration: underline;
+}
+
+.cms-form-btns > div > .notif-confirm{
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform:translateX(-50%);
+  background-color: #FFFCF7;
+  border: solid 2px; 
+  padding: 1em;
+  font-family: body-font; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cms-list-item > div > .notif-confirm{
+  position: absolute; 
+}
+
+/* notif confirm */
+.notif-confirm{
+  display: flex; 
+  flex-direction: column; 
+  background-color:#FFFCF7;
+  border: solid 2px; 
+  padding: 2em;
+  gap: 1em;
+  font-family: body-font;
+}
+
+.notif-confirm-btns{
+  display: flex;
+  justify-content: center;
+}
+
+.notif-confirm-btns button{
+  font-family: body-font;
+  border: none;
+  background-color: transparent;
+  border: solid 1px; 
+  width: 5em;
+}
+
+.notif-confirm-btns button:hover{
+  text-decoration: underline;
+}
+
+.notif-confirm-btns > .confirm-btn{
+  background-color: black;
+  color:#FFFCF7;
+}
+
+.footer-main-items > .notif-confirm{
+  position: absolute; 
+  transform: translateY(-80%); 
+}
 
 
 

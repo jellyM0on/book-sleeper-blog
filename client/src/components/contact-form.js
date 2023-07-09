@@ -1,8 +1,5 @@
-import React from "react";
-import SocialLinks from "./social-links";
 import Axios from 'axios'; 
 import {useState} from 'react'
-import {Redirect, Link} from 'react-router-dom'
 
 export default function ContactForm(){
     const [mailStatus, setStatus] = useState()
@@ -62,10 +59,10 @@ export default function ContactForm(){
 
    
     return(
-        <form class='contact-form' method='POST' action='/send' onSubmit={submitForm}>
+        <form className='contact-form' method='POST' action='/send' onSubmit={submitForm}>
             <p>All fields are required.</p>
-            <input onChange={handleChange}name='name' placeholder="Your name..." maxLength={60} minLength={3} required></input>
-            <input  onChange={handleChange}name='email' type='email' placeholder="Your email..." required></input>
+            <input onChange={handleChange}name='name' placeholder="Your name..." maxLength={60} minLength={3} required autoComplete="on"></input>
+            <input  onChange={handleChange}name='email' type='email' placeholder="Your email..." required autoComplete="on"></input>
             <textarea onChange={handleChange} name='message' placeholder="Type your message here..." required maxLength={500} minLength={5}></textarea>
             <button type='submit'>submit</button>
             <FormValidator/>
