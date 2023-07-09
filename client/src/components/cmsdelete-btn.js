@@ -16,7 +16,7 @@ export default function CMSDeleteBtn({id}){
         if(!user){
             return
         }
-        const currIndex = works.findIndex(x => x._id == id); 
+        const currIndex = works.findIndex(x => x._id === id); 
         const nextIndex = works[currIndex+1]; 
         const response = await fetch(`http://localhost:5000/${id}`, {
             method: 'DELETE', 
@@ -53,7 +53,7 @@ export default function CMSDeleteBtn({id}){
     return(
         <div>
             {deleteStatus === 1 ? <ConfirmNotif text={'delete this post'} handleCancel={handleCancel} handleConfirm={handleConfirm}/> : <></>}
-            <button type='button' onClick={handleDelete} className='cms-delete-btn'><img src={deleteicon}></img></button>
+            <button type='button' onClick={handleDelete} className='cms-delete-btn'><img src={deleteicon} alt='Delete Icon'></img></button>
          </div>
     )
 }

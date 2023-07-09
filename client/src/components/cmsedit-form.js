@@ -6,7 +6,7 @@ import CMSDeleteBtn from "./cmsdelete-btn";
 
 export default function EditWorkForm(props){
     const {work} = props; 
-    const { works, dispatch } = useWorksContext()
+    const { dispatch } = useWorksContext()
     const { user } = useAuthContext()
 
     const [title, setTitle] = useState(``)
@@ -94,7 +94,7 @@ export default function EditWorkForm(props){
         content = content.split('');
         content.map((x, i) => {
             if(x === '\n'){
-                content[i] = '<br>'
+                return content[i] = '<br>'
             } else {
                 return x
             }
@@ -123,6 +123,7 @@ export default function EditWorkForm(props){
                 <button onClick={handleSubmit} className='cms-save-btn'>Save</button>
                 <CMSDeleteBtn id={id}/>
             </div>
+            {error ? <p>{error}</p> : <></>}
         </form>
         </div>
        

@@ -22,7 +22,7 @@ export default function AddWorksForm(){
         content = content.split('');
         content.map((x, i) => {
             if(x === '\n'){
-                content[i] = '<br>'
+                return content[i] = '<br>'
             } else {
                 return x
             }
@@ -36,9 +36,8 @@ export default function AddWorksForm(){
             setError('You must be logged in');
             return;
         }
-        let formattedContent = `<p>${content}</p>`
+
         const work = {title, content: formatContent(content), date}
-        console.log(work.content)
 
         const response = await fetch('http://localhost:5000/', {
             method: 'POST', 
@@ -59,10 +58,6 @@ export default function AddWorksForm(){
         }
     }
 
-    function formatDispatch(json){
-        console.log(json)
-    }
-
     return(
         <form className='cms-form'>
             <h3>Create a new post</h3>
@@ -81,6 +76,7 @@ export default function AddWorksForm(){
             <div className='cms-form-btns'>
                 <button onClick={handleSubmit} className='cms-save-btn'>Save post</button>
             </div>
+            {error ? <p>{error}</p> : <></>}
         </form>
     )
 }

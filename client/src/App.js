@@ -32,7 +32,7 @@ function App() {
       })
 
     if(!wordDecor){
-      // getWord(); 
+      getWord(); 
     }
   }, [])
 
