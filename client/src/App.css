@@ -401,7 +401,7 @@ body{
   font-family: 'Times New Roman', Times, serif;
   font-style: italic;
   padding-bottom: 0.5em;
-  padding-left: 1em;
+  padding: 0 1em 0.5em 1em;
   font-size: 1.5em;
 }
 
@@ -673,6 +673,9 @@ footer > .social-links img{
   justify-content: center;
   margin: 2em; 
   height: calc(100vh - (180.25px));
+  max-height: 1000px;
+  min-height: 400px;
+
 }
 
 .login-page h2{
@@ -691,6 +694,11 @@ footer > .social-links img{
   gap: 1em;
   margin: 1em 0 1em 0;
   font-family: body-font;
+  width: auto;
+
+  @media screen and (max-width: 400px) {
+    padding: 1em;
+  }
 }
 
 .login-form input{
@@ -698,6 +706,11 @@ footer > .social-links img{
   font-size: 1em;
   border-radius: 0;
   border: solid 1px;
+
+  @media screen and (max-widt: 400px) {
+    width: 10em;
+    font-size: 0.75em;
+  }
 }
 
 .login-form button{

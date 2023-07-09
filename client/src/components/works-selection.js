@@ -5,8 +5,8 @@ import { useWorksContext } from "../hooks/useWorksContext";
 import Sort from '../components//sort-works';
 import WorksList from '../components/selection-section';
 
-export default function WorksSelection({data}){
-    const {sortKey, setSortKey, sortedData, setSortedData} = useOutletContext(); 
+export default function WorksSelection(){
+    const {sortKey, setSortKey, setSortedData} = useOutletContext(); 
 
     const { works } = useWorksContext()
 
@@ -24,7 +24,7 @@ export default function WorksSelection({data}){
         let letters = []; 
         sorted.forEach((d) => {
             const letter = findFirst(d); 
-            if (!letters.find(x => (x == letter))){
+            if (!letters.find(x => (x === letter))){
                 letters.push(letter);
             }
         })
@@ -35,7 +35,7 @@ export default function WorksSelection({data}){
             let key = x; 
             sorted.forEach((d) => {
                 const letter = findFirst(d); 
-                if(letter == x){
+                if(letter === x){
                     arr.push(d); 
                 }
             })
@@ -57,7 +57,7 @@ export default function WorksSelection({data}){
         let years = []; 
         sorted.forEach((d) => {
             const year = findYear(d);
-            if (!years.find(x => (x == year))){
+            if (!years.find(x => (x === year))){
                 years.push(year);
             }
         })
@@ -68,7 +68,7 @@ export default function WorksSelection({data}){
             let key = x; 
             sorted.forEach((d) => {
                 const year = findYear(d); 
-                if(year == x){
+                if(year === x){
                     arr.push(d); 
                 }
             })
@@ -83,7 +83,7 @@ export default function WorksSelection({data}){
     }, [])
 
     useEffect(() => {
-        sortKey == 'alphabet' ? setSortedData(alphaSorted()) : setSortedData(dateSorted());
+        sortKey === 'alphabet' ? setSortedData(alphaSorted()) : setSortedData(dateSorted());
     }, [sortKey])
 
     return(
