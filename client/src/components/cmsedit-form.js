@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useWorksContext } from "../hooks/useWorksContext";
+import {useAuthContext} from '../hooks/useAuthContext'
 
 import CMSDeleteBtn from "./cmsdelete-btn";
 
 export default function EditWorkForm(props){
     const {work} = props; 
     const { works, dispatch } = useWorksContext()
+    const { user } = useAuthContext()
 
     const [title, setTitle] = useState(``)
     const [content, setContent] = useState()
@@ -40,11 +42,17 @@ export default function EditWorkForm(props){
 
     const handleSubmit = async(e) => {
         e.preventDefault() 
+        if(!user){
+            setError('You must be logged in')
+            return
+        }
         const work = {title, content: formatText(content), date}
         console.log(work); 
         const response = await fetch(`http://localhost:5000/${id}`, {
             method: 'PATCH', 
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json',  
+                'Authorization': `Bearer ${user.token}`
+            },
             body: JSON.stringify(work)
         })
 

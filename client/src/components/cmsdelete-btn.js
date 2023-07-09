@@ -1,19 +1,28 @@
 import { useWorksContext } from "../hooks/useWorksContext";
 import { useState } from "react";
+import {useAuthContext} from '../hooks/useAuthContext'
+
 
 import ConfirmNotif from "./notif-confirmation";
 import deleteicon from '../img-resources/delete-icon.svg'
 
 export default function CMSDeleteBtn({id}){
     const {works, dispatch} = useWorksContext()
+    const { user } = useAuthContext()
 
     let [deleteStatus, setDelete] = useState(0)
 
     const deletePost = async(e) => {
+        if(!user){
+            return
+        }
         const currIndex = works.findIndex(x => x._id == id); 
         const nextIndex = works[currIndex+1]; 
         const response = await fetch(`http://localhost:5000/${id}`, {
             method: 'DELETE', 
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
         })
         const json = await response.json()
 

@@ -18,7 +18,7 @@ app.use((req, res, next) => {
     next()
   })
 
-app.use(workRoutes)
+
 app.use(userRoutes)
 
 
@@ -47,6 +47,8 @@ app.get('/read', async (req, res) => {
         }
     })
 })
+
+app.use(workRoutes)
 
 
 const transporter = nodemailer.createTransport({

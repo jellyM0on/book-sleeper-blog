@@ -1,14 +1,10 @@
 const express = require('express');
 const router = express.Router(); 
+
 const {getWork, addWork, deleteWork, editWork} = require('../controllers/worksController')
+const requireAuth = require('../middleware/requireAuth')
 
-
-// router.get('/', async(req, res) => {
-//     // let collection = await db.collection('works');
-//     // let results = await collection.find({});
-
-//     // res.send(results).status(200); 
-// }) 
+router.use(requireAuth)
 
 router.post('/', addWork)
 

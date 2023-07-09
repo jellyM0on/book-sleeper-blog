@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useWorksContext } from "../hooks/useWorksContext";
 import { useEffect } from "react";
+import {useAuthContext} from '../hooks/useAuthContext'
+
 
 export default function AddWorksForm(){
     const { dispatch } = useWorksContext()
+    const { user } = useAuthContext()
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -29,23 +32,25 @@ export default function AddWorksForm(){
 
     const handleSubmit = async(e) => {
         e.preventDefault() 
+        if(!user){
+            setError('You must be logged in');
+            return;
+        }
         let formattedContent = `<p>${content}</p>`
         const work = {title, content: formatContent(content), date}
         console.log(work.content)
 
         const response = await fetch('http://localhost:5000/', {
             method: 'POST', 
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json',   'Authorization': `Bearer ${user.token}`},
             body: JSON.stringify(work)
 
         })
 
         const json = await response.json();
         if(!response.ok){
-            console.log(work);
             setError(json.error);
         } else {
-            console.log('new work created'); 
             setTitle('')
             setContent('')
             setDate(new Date());
