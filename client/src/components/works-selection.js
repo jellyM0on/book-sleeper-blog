@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
 import { useOutletContext } from 'react-router-dom';
+import { useWorksContext } from "../hooks/useWorksContext";
 
 import Sort from '../components//sort-works';
 import WorksList from '../components/selection-section';
 
 export default function WorksSelection({data}){
     const {sortKey, setSortKey, sortedData, setSortedData} = useOutletContext(); 
+
+    const { works } = useWorksContext()
 
     function alphaSorted(){
 
@@ -16,7 +19,7 @@ export default function WorksSelection({data}){
             return letter; 
         }
 
-        const sorted = data.slice().sort((a, b) => a.title > b.title ? 1 : -1);
+        const sorted = works.slice().sort((a, b) => a.title > b.title ? 1 : -1);
 
         let letters = []; 
         sorted.forEach((d) => {
@@ -44,7 +47,7 @@ export default function WorksSelection({data}){
 
     function dateSorted(){
 
-        const sorted = data; 
+        const sorted = works; 
 
         const findYear = (data) => {
             const dateObj = new Date(data.date)

@@ -10,7 +10,7 @@ export default function CMSDeleteBtn({id}){
     const {works, dispatch} = useWorksContext()
     const { user } = useAuthContext()
 
-    let [deleteStatus, setDelete] = useState(0)
+    const [deleteStatus, setDelete] = useState(0)
 
     const deletePost = async(e) => {
         if(!user){

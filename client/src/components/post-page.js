@@ -1,10 +1,11 @@
 import { useOutletContext } from 'react-router-dom';
+import { useWorksContext } from "../hooks/useWorksContext";
 
 import ContentEditor from './works-content-editor';
 import PostNav from './post-page-nav'; 
 
-export default function Post(props){
-    const {data, postData} = props; 
+export default function Post({postData}){
+    const { works } = useWorksContext();
 
     const {font, setFont, fontSize, setFontSize, sortedData} = useOutletContext(); 
 
@@ -17,7 +18,7 @@ export default function Post(props){
            })
         })
     } else {
-        collapsedData = data; 
+        collapsedData = works; 
     }
     
     const content = postData.content;

@@ -37,12 +37,12 @@ function App() {
   }, [])
 
   async function getWord(){
-    fetch('https://api.datamuse.com/words?ml=poetry')
-    .then((res) => res.json())
-    .then((res) => {
-      const total = res.length; 
+    Axios.get('https://api.datamuse.com/words?ml=poetry')
+    .then((result) => {
+      result = result.data
+      const total = result.length; 
       const randomNum = Math.ceil(Math.random() * total) 
-      setWordDecor(res[randomNum].word);
+      setWordDecor(result[randomNum].word);
     })
   }
 
@@ -73,21 +73,20 @@ function App() {
               <Route path='/admin' element={<CmsPage/>}/>
               <Route path='/contact' element={<Contact/>}/>
               <Route path='/login' element={!user ? <LogIn/> : <Navigate to='/content-management'/>}/>
-              <Route path='/content-management' element={user ? <CmsPage data={data}/> : <Navigate to='/login'/>}/>
+              <Route path='/content-management' element={user ? <CmsPage/> : <Navigate to='/login'/>}/>
               {works.map((d, i) => {
                   return(
-                    <Route path={`/content-management/${d._id}`} key={i} element={user ? <CmsPage data={data} form={d}/> : <Navigate to='/login'/>}/>
+                    <Route path={`/content-management/${d._id}`} key={i} element={user ? <CmsPage form={d}/> : <Navigate to='/login'/>}/>
               )})}
-              <Route path='/works' element={<Works data={data}/>}>
-                <Route index element={<WorksSelection data={data}/>}/>
-                {data.map((d, i) => {
+              <Route path='/works' element={<Works/>}>
+                <Route index element={<WorksSelection/>}/>
+                {works.map((d, i) => {
                   return(
-                    <Route path={`/works/${d._id}`}  key={i} element={<Post data={data} postData={d}/>}/>
+                    <Route path={`/works/${d._id}`}  key={i} element={<Post postData={d}/>}/>
                 )
                 })}
               </Route>
-
-              <Route path="*" element={<div> Not Found or You do not have permission.</div>}/>
+              <Route path="*" element={<div> Not found or you do not have permission.</div>}/>
             </Routes>
         <Footer/>
       </BrowserRouter> 
