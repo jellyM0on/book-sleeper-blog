@@ -48,7 +48,7 @@ export default function EditWorkForm(props){
         }
         const work = {title, content: formatText(content), date}
         console.log(work); 
-        const response = await fetch(`http://localhost:5000/${id}`, {
+        const response = await fetch(`/api/${id}`, {
             method: 'PATCH', 
             headers: {'Content-Type': 'application/json',  
                 'Authorization': `Bearer ${user.token}`

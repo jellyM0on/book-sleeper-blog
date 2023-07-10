@@ -36,7 +36,7 @@ async function connectDb(){
 }
 connectDb(); 
 
-app.get('/read', async (req, res) => {
+app.get('/api/read', async (req, res) => {
     TextModel.find({})
     .sort({'date': -1 })
     .then((result, err) => {

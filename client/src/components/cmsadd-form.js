@@ -13,7 +13,6 @@ export default function AddWorksForm(){
     const [date, setDate] = useState('')
     const [error, setError] = useState(null)
 
-
     useEffect(() => {
         setDate(new Date());
     }, [])
@@ -39,7 +38,7 @@ export default function AddWorksForm(){
 
         const work = {title, content: formatContent(content), date}
 
-        const response = await fetch('http://localhost:5000/', {
+        const response = await fetch(`/api/add`, {
             method: 'POST', 
             headers: {'Content-Type': 'application/json',   'Authorization': `Bearer ${user.token}`},
             body: JSON.stringify(work)

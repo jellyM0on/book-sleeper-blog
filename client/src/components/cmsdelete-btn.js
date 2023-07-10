@@ -18,7 +18,7 @@ export default function CMSDeleteBtn({id}){
         }
         const currIndex = works.findIndex(x => x._id === id); 
         const nextIndex = works[currIndex+1]; 
-        const response = await fetch(`http://localhost:5000/${id}`, {
+        const response = await fetch(`/api/${id}`, {
             method: 'DELETE', 
             headers: {
                 'Authorization': `Bearer ${user.token}`

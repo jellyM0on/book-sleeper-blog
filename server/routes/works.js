@@ -6,11 +6,11 @@ const requireAuth = require('../middleware/requireAuth')
 
 router.use(requireAuth)
 
-router.post('/', addWork)
+router.post('/api/add', addWork)
 
-router.patch('/:id', editWork)
+router.patch('/api/:id', editWork)
 
-router.delete('/:id', deleteWork)
+router.delete('/api/:id', deleteWork)
 
 
 module.exports = router; 

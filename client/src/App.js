@@ -24,8 +24,9 @@ function App() {
 
   const {works, dispatch} = useWorksContext()
 
+  
   useEffect(() => {
-      Axios.get(`http://localhost:5000/read`)
+      Axios.get(`/api/read`)
       .then((result) => {
         dispatch({type: 'SET_WORKS', payload: result.data})
         setData(reformatData(result.data)); 
