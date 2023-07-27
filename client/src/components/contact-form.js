@@ -20,7 +20,7 @@ export default function ContactForm(){
 
     const submitForm = async (event) => {
         event.preventDefault(); 
-        Axios.post('http://localhost:5000/send', mail)
+        Axios.post('/send', mail)
         .then((response) => {
             if(response.data.status === 'success'){
                 setStatus('success');

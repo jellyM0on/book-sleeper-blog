@@ -15,7 +15,7 @@ export default function CMSWorksList(){
     
     const ListItem = ({work}) => {
         return(
-            <Link to={`http://localhost:3000/content-management/${work._id}`}>
+            <Link to={`/content-management/${work._id}`}>
                 <div className='cms-list-item' id={`cms-item-${work._id}`} onClick={() => {
                     }} >
                         <div className='list-item-text'>

@@ -26,7 +26,7 @@ function App() {
 
   
   useEffect(() => {
-      Axios.get(`/api/read`)
+      Axios.get(`/read`)
       .then((result) => {
         dispatch({type: 'SET_WORKS', payload: result.data})
         setData(reformatData(result.data)); 
@@ -67,7 +67,7 @@ function App() {
   return (
     <div className="App">
       {Object.keys(data[0]).length === 0 ? <Loading/> : 
-      <BrowserRouter>
+      <BrowserRouter basename='/booksleeper'>
         <NavTab wordDecor={wordDecor}/>
           <Routes key={window.location.pathname}>
               <Route path='/'element={<Home latestData={works.slice(0, 3)}/>}/>

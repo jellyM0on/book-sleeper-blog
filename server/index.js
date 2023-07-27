@@ -7,7 +7,6 @@ const userRoutes = require('./routes/user')
 const workRoutes = require('./routes/works')
 const app = express();
 
-
 require('dotenv/config'); 
 
 app.use(express.json());
@@ -36,7 +35,7 @@ async function connectDb(){
 }
 connectDb(); 
 
-app.get('/api/read', async (req, res) => {
+app.get('/read', async (req, res) => {
     TextModel.find({})
     .sort({'date': -1 })
     .then((result, err) => {
@@ -47,8 +46,6 @@ app.get('/api/read', async (req, res) => {
         }
     })
 })
-
-app.use(workRoutes)
 
 
 const transporter = nodemailer.createTransport({
@@ -88,6 +85,8 @@ app.post('/send', (req, res, next) => {
      }
     })
 })
+
+app.use(workRoutes)
 
 app.listen(process.env.PORT, ()=> {
     console.log('server listening on 5000');
