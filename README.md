@@ -40,7 +40,7 @@ https://github.com/user-attachments/assets/e0c3ecfa-01d1-4df5-8476-8bfc3f0dbc0b
 
 <h5>Server Implementation:</h5>
 <p>I used a t2.nano instance with an Ubuntu OS.</p>
-<img width="539" alt="Screenshot 1" src="https://github.com/user-attachments/assets/812cab14-76c7-4bad-9bad-54e8b3a0c995">
+<img width="514" alt="Screenshot 2024-10-10 at 19 27 41" src="https://github.com/user-attachments/assets/086dce50-fc57-488f-809f-e5bc3ebbc6eb">
 
 <p>I used NGINX to serve the files.</p>
 <img width="539" alt="Screenshot 1" src="https://github.com/user-attachments/assets/543b380a-bebc-4a24-9f9a-cc8e97323c8b">
